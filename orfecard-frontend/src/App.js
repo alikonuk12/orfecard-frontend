@@ -7,6 +7,7 @@ import {
 import { useDispatch } from 'react-redux';
 import { MODE } from './store/reducers/viewReducer';
 import { Header } from './layout';
+import { Homepage } from './pages';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const App = () => {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<div>MAINPAGE</div>}>
+        <Route path="/" element={<Homepage />}>
         </Route>
       </Routes>
     </BrowserRouter>
