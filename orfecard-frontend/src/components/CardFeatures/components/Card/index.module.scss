@@ -1,0 +1,37 @@
+.container {
+    width: 350px;
+    background-color: #D7B46A;
+
+    border: {
+        radius: 10px;
+        style: none;
+    }
+
+    padding: {
+        top: 15px;
+        bottom: 15px;
+        left: 5px;
+        right: 5px;
+    }
+
+    box-shadow: 0 3px 3px #D7B46A;
+
+    .title {
+        font: {
+            size: 20px;
+            weight: 800;
+        }
+
+        margin-bottom: 5px;
+        color: #FFFFFF;
+    }
+
+    .text {
+        font: {
+            size: 14px;
+            weight: 400;
+        }
+
+        color: #FFFFFF;
+    }
+}

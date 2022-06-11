@@ -44,6 +44,7 @@ const Slider = ({ count }) => {
                     .from({ length: count })
                     .map((_, index) => (
                         <div
+                            key={index}
                             onClick={() => moveDot(index + 1)}
                             className={slideIndex === index + 1 ? styles.dotActive : styles.dot}
                         />
