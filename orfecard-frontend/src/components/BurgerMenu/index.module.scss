@@ -1,0 +1,33 @@
+.menu {
+    min-width: 100vw;
+    background-color: black;
+}
+
+.burgerMenuButton {
+    width: 40px;
+    height: 110px;
+    padding-right: 20px;
+}
+
+.itemList {
+    padding: 20px;
+    max-height: calc(100vh - 110px);
+}
+
+.item {
+    text-decoration: none;
+    color: #FFFFFF;
+    background-color: #000000;
+    border-radius: 4px;
+    padding: 10px;
+
+    font: {
+        size: 18px;
+        weight: 400;
+    }
+
+    &:hover {
+        color: #000000;
+        background-color: gray;
+    }
+}
