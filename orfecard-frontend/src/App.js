@@ -7,7 +7,7 @@ import {
 import { useDispatch } from 'react-redux';
 import { MODE } from './store/reducers/viewReducer';
 import { Header } from './layout';
-import { Homepage } from './pages';
+import { Homepage, Login } from './pages';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -22,8 +22,8 @@ const App = () => {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Homepage />}>
-        </Route>
+        <Route path="/" element={<Homepage />} />
+        <Route path='/login' element={<Login />} />
       </Routes>
     </BrowserRouter>
   );
