@@ -1,13 +1,15 @@
 .container {
-    position: relative;
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    min-height: 110px;
+    height: 110px;
     background-color: #000000;
     box-shadow: 0 3px 3px #D7B46A;
-
+    z-index: 1;
+    
     border-bottom: {
         width: 4px;
         style: solid;
