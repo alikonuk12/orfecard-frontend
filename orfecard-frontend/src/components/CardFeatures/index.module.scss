@@ -1,8 +1,28 @@
 .container {
     display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    width: 100%;
+    padding-top: 10px;
+    background-color: #000000;
+    gap: 15px;
+}
+
+.header {
+    font: {
+        size: 18px;
+        weight: 300;
+    }
+
+    width: 100%;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.featuresContainer {
+    display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    background-color: #000000;
     padding: 50px 0 50px 0;
     gap: 50px;
 }

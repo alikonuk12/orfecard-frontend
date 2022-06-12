@@ -1,3 +1,5 @@
+export const HEADER = 'Dijital Kartvizitinizin Özellikleri ile Tanışın';
+
 export const FEATURES = [
     {
         title: 'DİJİTAL',
