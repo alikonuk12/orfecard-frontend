@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { MODE } from './store/reducers/viewReducer';
-import { Header } from './layout';
+import { Header, Footer } from './layout';
 import { Homepage, Login } from './pages';
 
 const App = () => {
@@ -25,6 +25,7 @@ const App = () => {
         <Route path="/" element={<Homepage />} />
         <Route path='/login' element={<Login />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

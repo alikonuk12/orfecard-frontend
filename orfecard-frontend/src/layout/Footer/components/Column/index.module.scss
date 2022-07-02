@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    gap: 25px;
+
+    .text {
+        text-decoration: none;
+        color: #FFFFFF;
+
+        &:hover {
+            text-decoration: underline;
+            color: #FFFFFF;
+        }
+    }
+}

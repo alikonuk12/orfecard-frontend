@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { useDispatch } from 'react-redux';
 import { Slider, PrimaryFeatures, CardFeatures } from '../../components';
+import { TAKE_OFFSET } from '../../store/reducers/viewReducer';
 
 const Homepage = () => {
+    const socialUtilityRef = useRef(null);
+    const featuresRef = useRef(null);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        window.addEventListener('load', () => {
+            dispatch(TAKE_OFFSET({ socialUtilityOffset: socialUtilityRef.current.offsetTop - 94, featuresOffset: featuresRef.current.offsetTop - 94 }));
+        });
+    }, []);
+
     return (
         <div>
-            <Slider count={4} />
+            <Slider count={2} />
             <PrimaryFeatures />
-            <img width='100%' src='images/social_utility.jpg' alt='social_utility' />
-            <CardFeatures />
+            <img ref={socialUtilityRef} width='100%' src='images/social_utility.jpg' alt='social_utility' />
+            <div ref={featuresRef}><CardFeatures /></div>
         </div>
     );
 }
