@@ -1,8 +1,10 @@
 import React from 'react';
 import { useFormik } from 'formik';
+import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 import { Input } from '../../components';
 import styles from './index.module.scss';
+import { login } from "../../api/account";
 import {
     LOGIN_PANEL_HEADER,
     LOGIN_INPUTS,
@@ -12,12 +14,24 @@ import {
 } from './const';
 
 const Login = () => {
+    const navigate = useNavigate();
+    
+    const handleSubmit = async () => {
+        const body = { email: formik.values.email, password: formik.values.password };
+        const response = await login(body);
+        if (response.email) {
+            localStorage.setItem('email', response.email);
+            localStorage.setItem('role', response.role);
+            navigate("/userpanel", { replace: true });
+        }
+    }
+
     const formik = useFormik({
         initialValues: {
             email: "",
             password: ""
         },
-        onSubmit: (values) => console.log(JSON.stringify(values, null, 4)),
+        onSubmit: handleSubmit,
         validationSchema: yup.object({
             email: yup
                 .string()
