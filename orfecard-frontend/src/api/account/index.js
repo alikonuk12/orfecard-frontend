@@ -1,6 +1,6 @@
 import login from "./login";
 import getcardownerinfo from './getcardownerinfo';
-import updatecardownerinfo from './updatecardownerinfo';
+import updatecardownerinfodetail from './updatecardownerinfodetail';
 import getcardownerinfodetail from './getcardownerinfodetail';
 
-export { login, getcardownerinfo, updatecardownerinfo, getcardownerinfodetail };
+export { login, getcardownerinfo, updatecardownerinfodetail, getcardownerinfodetail };

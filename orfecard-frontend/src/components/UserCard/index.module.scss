@@ -1,52 +1,69 @@
 .container {
     cursor: pointer;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    flex-direction: column;
     width: 300px;
-    padding: 10px;
-    gap: 50px;
-    border-radius: 5px;
     background-color: #D7B46A;
+    border-radius: 10px;
+    padding: 5px 10px 15px 10px;
 
     &:hover {
         box-shadow: 4px 4px 8px -3px rgba(0,0,0,0.75);
     }
 
-    .image {
-        width: 100px;
-        border-radius: 10px;
-    }
-    .infos {
+    .editContainer {
         display: flex;
-        flex-direction: column;
-        gap: 5px;
+        justify-content: flex-end;
+        width: 100%;
 
-        .fullname {
-            font: {
-                size: 16px;
-                weight: 400;
-            }
+        .edit {
+            width: 15px;
         }
-        .subContainer {
+    }
+
+    .bottomContainer {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        gap: 35px;
+    
+        .image {
+            width: 100px;
+            border-radius: 10px;
+        }
+        .infos {
             display: flex;
             flex-direction: column;
-            line-height: 12px;
-            gap: 10px;
+            gap: 5px;
     
-            .contact {
+            .fullname {
                 font: {
-                    size: 12px;
+                    size: 16px;
                     weight: 400;
                 }
-                line-height: 12px;
             }
-            .companyName {
-                font: {
-                    size: 12px;
-                    weight: 600;
-                }
+
+            .subContainer {
+                display: flex;
+                flex-direction: column;
                 line-height: 12px;
+                gap: 10px;
+        
+                .contact {
+                    font: {
+                        size: 12px;
+                        weight: 400;
+                    }
+                    line-height: 12px;
+                }
+                .companyName {
+                    font: {
+                        size: 12px;
+                        weight: 600;
+                    }
+                    line-height: 12px;
+                }
             }
         }
     }

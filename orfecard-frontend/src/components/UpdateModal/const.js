@@ -8,8 +8,7 @@ export const FIELDS = {
     website: 'Websitesi:',
     address: 'Adres:',
     location: 'Konum:',
-    companyName: 'Şirket:',
-    createdAt: 'Hesap Oluşturma Tarihi:'
+    companyName: 'Şirket:'
 }
 
 export const SOCIAL_MEDIA_FIELDS = {
@@ -36,3 +35,12 @@ export const E_COMMERCE_FIELDS = {
     getir: 'getir.svg',
     etsTur: 'etstur.svg'
 }
+
+export const VALIDATION_TEXT = {
+    REQUIRED: 'Doldurulması gereklidir',
+    LENGTH: 'Yeterli uzunlukta değildir',
+    EMAIL: 'E-mail formatında olmalıdır',
+    PHONE_NUMBER: 'Numaranız 05 ile başlamalıdır'
+}
+
+export const BUTTON_TEXT = 'Güncelle';

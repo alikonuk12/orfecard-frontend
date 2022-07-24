@@ -1,23 +1,23 @@
 import axios from 'axios';
 import { BASE_URL } from '../constant';
 
-const updatecardownerinfo = async (body) => {
+const updatecardownerinfodetail = async (body) => {
     try {
         const config = {
             baseURL: BASE_URL,
             withCredentials: true,
-            url: '/api/account/updatecardownerinfo',
+            url: '/api/account/updatecardownerinfodetail',
             method: 'PUT',
             data: body
         };
 
-        const { status, data } = (await axios(config))?.data;
+        const { status } = (await axios(config))?.data;
 
         if (status !== 'success') return;
-        return data;
+        return true;
     } catch (e) {
         console.log(e);
     }
 }
 
-export default updatecardownerinfo;
+export default updatecardownerinfodetail;

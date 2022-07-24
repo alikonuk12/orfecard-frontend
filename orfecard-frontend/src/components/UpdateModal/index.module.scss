@@ -1,0 +1,99 @@
+.container {
+    display: flex;
+    justify-content: center;
+
+    .mobileModal {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+        width: 70vw;
+        max-width: 70vw;
+        height: 400px;
+        padding: 20px 20px;
+        margin-top: 10px;
+        background-color: #D7B46A;
+        gap: 25px;
+        box-shadow: 4px 4px 8px -3px rgba(0,0,0,0.75);
+        border-radius: 15px;
+    }
+
+    .desktopModal {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+        width: 30vw;
+        max-width: 30vw;
+        height: 350px;
+        padding: 20px 20px;
+        margin-top: 10px;
+        background-color: #D7B46A;
+        gap: 25px;
+        box-shadow: 4px 4px 8px -3px rgba(0,0,0,0.75);
+        border-radius: 15px;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    .closeContainer {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+
+        .close {
+            cursor: pointer;
+            width: 20px;
+        }
+    }
+
+    .imageContainer {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+        .image {
+            width: 150px;
+            border-radius: 10px;
+        }
+    }
+
+    .rowContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            word-break: break-word;
+
+            .rowKey {
+                font: {
+                    size: 12px;
+                    weight: 400;
+                }
+            }
+        }
+    }
+
+    .buttonContainer {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+        .button {
+            width: 150px;
+            height: 25px;
+            background-color: #FFFFFF;
+            border: {
+                width: 1px;
+                radius: 5px;
+            }
+        }
+    }
+}
