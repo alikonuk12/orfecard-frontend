@@ -5,7 +5,7 @@ import { getcardownerinfodetail } from '../../api/account';
 import { E_COMMERCE_FIELDS, FIELDS, SOCIAL_MEDIA_FIELDS } from './const';
 import styles from './index.module.scss';
 
-const Modal = ({ email, onClose }) => {
+const CardInfoModal = ({ email, onClose }) => {
     const [detail, setDetail] = useState({});
     const { mode } = useSelector(state => state.view);
 
@@ -76,4 +76,4 @@ const Modal = ({ email, onClose }) => {
     );
 }
 
-export default Modal;
+export default CardInfoModal;
