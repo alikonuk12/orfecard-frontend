@@ -17,4 +17,17 @@
         height: 1px;
         background-color: #000000;
     }
+
+    .subContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 35px;
+
+        .add {
+            cursor: pointer;
+            width: 80px;
+            height: 80px;
+        }
+    }
 }

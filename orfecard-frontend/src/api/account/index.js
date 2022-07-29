@@ -1,6 +1,15 @@
-import login from "./login";
+import login from './login';
 import getcardownerinfo from './getcardownerinfo';
-import updatecardownerinfodetail from './updatecardownerinfodetail';
 import getcardownerinfodetail from './getcardownerinfodetail';
+import createcardownerinfodetail from './createcardownerinfodetail';
+import updatecardownerinfodetail from './updatecardownerinfodetail';
+import deletecardownerinfodetail from './deletecardownerinfodetail';
 
-export { login, getcardownerinfo, updatecardownerinfodetail, getcardownerinfodetail };
+export { 
+    login, 
+    getcardownerinfo, 
+    getcardownerinfodetail, 
+    createcardownerinfodetail,
+    updatecardownerinfodetail, 
+    deletecardownerinfodetail 
+};
