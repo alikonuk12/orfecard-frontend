@@ -7,7 +7,7 @@ import { BUTTON_TEXT, E_COMMERCE_FIELDS, FIELDS, SOCIAL_MEDIA_FIELDS, VALIDATION
 import styles from './index.module.scss';
 import Input from "../Input";
 
-const UpdateModal = ({ email, onClose }) => {
+const UpdateCardInfoModal = ({ email, onClose }) => {
     const [detail, setDetail] = useState({});
     const inputRef = useRef();
     const { mode } = useSelector(state => state.view);
@@ -119,7 +119,8 @@ const UpdateModal = ({ email, onClose }) => {
                             backgroundImage: `url(${formik.values.image})`,
                             backgroundSize: '150px',
                             width: '150px',
-                            height: '150px'
+                            height: '150px',
+                            cursor: 'pointer'
                         }}>
                             <img src="/icons/add_icon.svg" alt='add_icon' />
                             <input ref={inputRef} hidden type='file' onChange={handleChangeImage} />
@@ -178,4 +179,4 @@ const UpdateModal = ({ email, onClose }) => {
     );
 }
 
-export default UpdateModal;
+export default UpdateCardInfoModal;
