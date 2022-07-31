@@ -1,22 +1,23 @@
 import axios from 'axios';
 import { BASE_URL } from '../constant';
 
-const getcardownerinfo = async () => {
+const createcarddetail = async (body) => {
     try {
         const config = {
             baseURL: BASE_URL,
             withCredentials: true,
-            url: '/api/account/getcardownerinfo',
-            method: 'GET'
+            url: '/api/account/createcarddetail',
+            method: 'POST',
+            data: body
         };
 
-        const { status, data } = (await axios(config))?.data;
+        const { status } = (await axios(config))?.data;
 
         if (status !== 'success') return;
-        return data;
+        return true;
     } catch (e) {
         console.log(e);
     }
 }
 
-export default getcardownerinfo;
+export default createcarddetail;

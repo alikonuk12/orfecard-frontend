@@ -2,18 +2,18 @@ import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { getcardownerinfodetail, updatecardownerinfodetail } from '../../api/account';
+import { getcarddetail, updatecarddetail } from '../../api/account';
 import { BUTTON_TEXT, E_COMMERCE_FIELDS, FIELDS, SOCIAL_MEDIA_FIELDS, VALIDATION_TEXT } from './const';
 import styles from './index.module.scss';
 import Input from "../Input";
 
-const UpdateCardInfoModal = ({ email, onClose }) => {
+const UpdateCardModal = ({ serialNumber, onClose }) => {
     const [detail, setDetail] = useState({});
     const inputRef = useRef();
     const { mode } = useSelector(state => state.view);
 
     const handleSubmit = async () => {
-        const isSuccess = await updatecardownerinfodetail(formik.values);
+        const isSuccess = await updatecarddetail({ ...formik.values, serialNumber });
         isSuccess && handleClose();
     }
 
@@ -80,7 +80,9 @@ const UpdateCardInfoModal = ({ email, onClose }) => {
         formik.resetForm();
         onClose();
     }
+    
     const handleClickImage = () => inputRef.current.click();
+    
     const handleChangeImage = ({ target }) => {
         const file = target.files[0];
         const reader = new FileReader();
@@ -91,18 +93,18 @@ const UpdateCardInfoModal = ({ email, onClose }) => {
     }
 
     const handleGetDetail = async () => {
-        const data = await getcardownerinfodetail({ email });
+        const data = await getcarddetail({ serialNumber });
         delete data['createdAt'];
         setDetail(data);
     }
 
     useEffect(() => {
-        email && handleGetDetail();
-    }, [email]);
+        serialNumber && handleGetDetail();
+    }, [serialNumber]);
 
     return (
         <div className={styles.container}>
-            {!!email &&
+            {!!serialNumber &&
                 <form
                     className={mode === 'DESKTOP' ? styles.desktopModal : styles.mobileModal}
                     onSubmit={formik.handleSubmit}
@@ -179,4 +181,4 @@ const UpdateCardInfoModal = ({ email, onClose }) => {
     );
 }
 
-export default UpdateCardInfoModal;
+export default UpdateCardModal;

@@ -1,26 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from 'react-redux';
 import moment from 'moment';
-import { getcardownerinfodetail } from '../../api/account';
+import { getcarddetail } from '../../api/account';
 import { E_COMMERCE_FIELDS, FIELDS, SOCIAL_MEDIA_FIELDS } from './const';
 import styles from './index.module.scss';
 
-const CardInfoModal = ({ email, onClose }) => {
+const CardModal = ({ serialNumber, onClose }) => {
     const [detail, setDetail] = useState({});
     const { mode } = useSelector(state => state.view);
 
     const handleGetDetail = async () => {
-        const data = await getcardownerinfodetail({ email });
+        const data = await getcarddetail({ serialNumber });
         setDetail(data);
     }
 
     useEffect(() => {
-        email && handleGetDetail();
-    }, [email]);
+        serialNumber && handleGetDetail();
+    }, [serialNumber]);
 
     return (
         <div className={styles.container}>
-            {!!email &&
+            {!!serialNumber &&
                 <div className={mode === 'DESKTOP' ? styles.desktopModal : styles.mobileModal}>
                     <div className={styles.closeContainer} onClick={onClose}>
                         <img
@@ -39,11 +39,7 @@ const CardInfoModal = ({ email, onClose }) => {
                     <div>
                         {Object.keys(FIELDS).map(el => (
                             <>
-                                {detail[el] &&
-                                    (el === 'createdAt' ?
-                                        <div>{FIELDS[el] + ' ' + moment(detail[el]).format('DD-MM-YYYY')}</div> :
-                                        <div>{FIELDS[el] + ' ' + detail[el]}</div>
-                                    )
+                                {detail[el] && <div>{FIELDS[el] + ' ' + detail[el]}</div>
                                 }
                             </>
                         ))}
@@ -76,4 +72,4 @@ const CardInfoModal = ({ email, onClose }) => {
     );
 }
 
-export default CardInfoModal;
+export default CardModal;

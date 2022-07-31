@@ -1,13 +1,13 @@
 import axios from 'axios';
 import { BASE_URL } from '../constant';
 
-const createcardownerinfodetail = async (body) => {
+const deletecarddetail = async (body) => {
     try {
         const config = {
             baseURL: BASE_URL,
             withCredentials: true,
-            url: '/api/account/createcardownerinfodetail',
-            method: 'POST',
+            url: '/api/account/deletecarddetail',
+            method: 'DELETE',
             data: body
         };
 
@@ -20,4 +20,4 @@ const createcardownerinfodetail = async (body) => {
     }
 }
 
-export default createcardownerinfodetail;
+export default deletecarddetail;

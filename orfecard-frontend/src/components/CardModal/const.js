@@ -1,14 +1,14 @@
 export const FIELDS = {
+    companyName: 'Şirket Ünvanı:',
     name: 'Ad:',
     lastname: 'Soyad:',
-    phoneNumber: 'Telefon Numarası:',
+    phoneNumber: 'GSM:',
     landlineNumber: 'Sabit Hat:',
     extNumber: 'Dahili No:',
     email: 'E-posta:',
     website: 'Websitesi:',
     address: 'Adres:',
-    location: 'Konum:',
-    companyName: 'Şirket:'
+    location: 'Konum:'
 }
 
 export const SOCIAL_MEDIA_FIELDS = {
@@ -35,12 +35,3 @@ export const E_COMMERCE_FIELDS = {
     getir: 'getir.svg',
     etsTur: 'etstur.svg'
 }
-
-export const VALIDATION_TEXT = {
-    REQUIRED: 'Doldurulması gereklidir',
-    LENGTH: 'Yeterli uzunlukta değildir',
-    EMAIL: 'E-mail formatında olmalıdır',
-    PHONE_NUMBER: 'Numaranız 05 ile başlamalıdır'
-}
-
-export const BUTTON_TEXT = 'Ekle';

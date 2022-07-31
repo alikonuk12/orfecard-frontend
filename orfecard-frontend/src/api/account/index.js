@@ -1,15 +1,15 @@
 import login from './login';
-import getcardownerinfo from './getcardownerinfo';
-import getcardownerinfodetail from './getcardownerinfodetail';
-import createcardownerinfodetail from './createcardownerinfodetail';
-import updatecardownerinfodetail from './updatecardownerinfodetail';
-import deletecardownerinfodetail from './deletecardownerinfodetail';
+import getcard from './getcard';
+import getcarddetail from './getcarddetail';
+import createcarddetail from './createcarddetail';
+import updatecarddetail from './updatecarddetail';
+import deletecarddetail from './deletecarddetail';
 
 export { 
     login, 
-    getcardownerinfo, 
-    getcardownerinfodetail, 
-    createcardownerinfodetail,
-    updatecardownerinfodetail, 
-    deletecardownerinfodetail 
+    getcard, 
+    getcarddetail, 
+    createcarddetail,
+    updatecarddetail, 
+    deletecarddetail 
 };
