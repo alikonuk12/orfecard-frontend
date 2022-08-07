@@ -21,7 +21,7 @@ const Header = () => {
                     <NavLink to='/' onClick={handleClickHome} className={styles.navLink}>Anasayfa</NavLink>
                     <NavLink to='/#eco' onClick={handleClickEco} className={styles.navLink}>Çevre Dostu</NavLink>
                     <NavLink to='/#card' onClick={handleClickCard} className={styles.navLink}>Kart Özellikleri</NavLink>
-                    <NavLink to='/#product' className={styles.navLink}>Ürünlerimiz</NavLink>
+                    <NavLink to='/satin-al' className={styles.navLink}>Satın Al</NavLink>
                     <NavLink to='/iletisim' className={styles.navLink}>İletişim</NavLink>
                     <NavLink to='/login' className={styles.navLink}>Giriş Yap</NavLink>
                     <NavLink to='/cart' className={styles.navLink}>Sepetim</NavLink>
@@ -30,7 +30,7 @@ const Header = () => {
                     <NavLink to='/' onClick={handleClickHome} className={styles.navLink}>Anasayfa</NavLink>
                     <NavLink to='/#eco' onClick={handleClickEco} className={styles.navLink}>Çevre Dostu</NavLink>
                     <NavLink to='/#card' onClick={handleClickCard} className={styles.navLink}>Kart Özellikleri</NavLink>
-                    <NavLink to='/#product' className={styles.navLink}>Ürünlerimiz</NavLink>
+                    <NavLink to='/#satin-al' className={styles.navLink}>Satın Al</NavLink>
                     <NavLink to='/#contact' className={styles.navLink}>İletişim</NavLink>
                     <NavLink to='/login' className={styles.navLink}>Giriş Yap</NavLink>
                     <NavLink to='/cart' className={styles.navLink}>Sepetim</NavLink>

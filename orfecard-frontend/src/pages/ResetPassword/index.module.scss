@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 94px);
+    background-color: #000000;
+
+    .resetpasswordContainer{
+        display: flex;
+        flex-direction: column;
+        padding: 50px 75px;
+        border: {
+            radius: 30px;
+            style: solid;
+            color: #D7B46A;
+        }
+        gap: 50px;
+
+        .resetpasswordHeader {
+            color: #FFFFFF;
+            font: {
+                size: 36px;
+                weight: 300;
+            }
+        }
+
+        .formContainer{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .button {
+                margin-top: 20px;
+                padding: 8px 5px;
+            }
+        }
+    }
+}

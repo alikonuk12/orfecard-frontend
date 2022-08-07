@@ -7,7 +7,7 @@ import {
 import { useDispatch } from 'react-redux';
 import { MODE } from './store/reducers/viewReducer';
 import { Header, Footer } from './layout';
-import { Homepage, Login, UserPanel } from './pages';
+import { AdminPanel, ForgotPassword, ResetPassword, Homepage, Login, UserPanel } from './pages';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -24,7 +24,12 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/forgotpassword' element={<ForgotPassword />} />
+        <Route path='/resetpassword/:token' element={<ResetPassword />} />
         <Route path='/userpanel' element={<UserPanel />} />
+        <Route path='/adminpanel' element={<AdminPanel />}>
+          <Route path=":sidetab" element={<AdminPanel />} />
+        </Route>
       </Routes>
       <Footer />
     </BrowserRouter>

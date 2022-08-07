@@ -1,5 +1,6 @@
 export const LOGIN_PANEL_HEADER = 'Giriş Paneli';
 export const LOGIN_BUTTON_TEXT = 'Giriş Yap';
+export const FORGOT_PASSWORD_TEXT = 'Şifremi unuttum';
 
 export const LOGIN_INPUTS = {
     EMAIL: 'E-mail:',

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useFormik } from 'formik';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 import { Input } from '../../components';
 import styles from './index.module.scss';
@@ -10,7 +10,8 @@ import {
     LOGIN_INPUTS,
     EMAIL_VALIDATION_TEXT,
     PASSWORD_VALIDATION_TEXT,
-    LOGIN_BUTTON_TEXT
+    LOGIN_BUTTON_TEXT,
+    FORGOT_PASSWORD_TEXT
 } from './const';
 
 const Login = () => {
@@ -70,6 +71,7 @@ const Login = () => {
                         errorText={formik.errors.password}
                         onChange={formik.handleChange}
                     />
+                    <Link to='/forgotpassword'>{FORGOT_PASSWORD_TEXT}</Link>
                     <button type='submit' className={styles.button}>{LOGIN_BUTTON_TEXT}</button>
                 </form>
             </div>
