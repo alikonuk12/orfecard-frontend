@@ -4,8 +4,8 @@ export const FIRST_COLUMN = [
         to: '/sikca-sorulan-sorular'
     },
     {
-        text: 'Ürünler',
-        to: '/urunlar'
+        text: 'Satın Al',
+        to: '/satin-al'
     },
     {
         text: 'NFC Uyumlu Telefonlar',

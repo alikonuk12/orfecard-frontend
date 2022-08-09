@@ -4,6 +4,7 @@ import ForgotPassword from './ForgotPassword';
 import ResetPassword from './ResetPassword';
 import UserPanel from './UserPanel';
 import AdminPanel from './AdminPanel';
+import Purchase from './Purchase';
 
 export {
     Homepage,
@@ -11,5 +12,6 @@ export {
     ForgotPassword,
     ResetPassword,
     UserPanel,
-    AdminPanel
+    AdminPanel,
+    Purchase
 };

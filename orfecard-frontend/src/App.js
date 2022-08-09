@@ -7,7 +7,15 @@ import {
 import { useDispatch } from 'react-redux';
 import { MODE } from './store/reducers/viewReducer';
 import { Header, Footer } from './layout';
-import { AdminPanel, ForgotPassword, ResetPassword, Homepage, Login, UserPanel } from './pages';
+import {
+  AdminPanel,
+  ForgotPassword,
+  ResetPassword,
+  Homepage,
+  Login,
+  UserPanel,
+  Purchase
+} from './pages';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -30,6 +38,7 @@ const App = () => {
         <Route path='/adminpanel' element={<AdminPanel />}>
           <Route path=":sidetab" element={<AdminPanel />} />
         </Route>
+        <Route path='/satin-al' element={<Purchase />} />
       </Routes>
       <Footer />
     </BrowserRouter>
