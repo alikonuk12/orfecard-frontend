@@ -1,10 +1,9 @@
-import React, { useEffect, lazy, Suspense, useState } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { MODE } from './store/reducers/viewReducer';
 import { Header, Footer } from './layout';
 import { Spinner } from './components';
-import { isuserloggedin } from './api/account';
 
 const AdminPanel = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/AdminPanel')), 1500)));
 const ForgotPassword = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/ForgotPassword')), 1500)));
@@ -16,28 +15,24 @@ const Purchase = lazy(() => new Promise(resolve => setTimeout(() => resolve(impo
 
 const App = () => {
   const dispatch = useDispatch();
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
   const ConditionalRouter = ({ component: Component, protectedRouter }) => {
+    const email = localStorage.getItem('email');
+    const role = localStorage.getItem('role');
+
     return (
       <Suspense fallback={<Spinner />}>
         {protectedRouter ?
-          isUserLoggedIn ?
+          (email && role) ?
             <Component /> :
-            <Navigate to='/login' /> :
+            <Navigate to='/login' replace /> :
           <Component />
         }
       </Suspense>
     );
   }
 
-  const handleIsUserLoggedIn = async () => {
-    const isUserLoggedIn = await isuserloggedin();
-    setIsUserLoggedIn(isUserLoggedIn);
-  }
-
   useEffect(() => {
-    handleIsUserLoggedIn();
     dispatch(MODE({ size: window.innerWidth }));
     window.addEventListener('resize', () => dispatch(MODE({ size: window.innerWidth })));
     return () => window.removeEventListener('resize');

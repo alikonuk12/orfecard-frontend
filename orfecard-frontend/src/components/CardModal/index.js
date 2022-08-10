@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from 'react-redux';
-import moment from 'moment';
 import { getcarddetail } from '../../api/account';
 import { E_COMMERCE_FIELDS, FIELDS, SOCIAL_MEDIA_FIELDS } from './const';
 import styles from './index.module.scss';

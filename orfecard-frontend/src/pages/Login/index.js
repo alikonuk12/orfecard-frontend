@@ -23,7 +23,9 @@ const Login = () => {
         if (response.email) {
             localStorage.setItem('email', response.email);
             localStorage.setItem('role', response.role);
-            navigate("/userpanel", { replace: true });
+            if (response.role === 'Client') navigate("/userpanel", { replace: true });
+            else if (response.role === 'Admin') navigate("/adminpanel", { replace: true });
+            else navigate("/", { replace: true });
         }
     }
 
