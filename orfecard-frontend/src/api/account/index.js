@@ -1,4 +1,5 @@
 import login from './login';
+import logout from './logout';
 import forgotpassword from './forgotpassword';
 import resetpassword from './resetpassword';
 import isuserloggedin from './isuserloggedin';
@@ -10,6 +11,7 @@ import deletecarddetail from './deletecarddetail';
 
 export { 
     login,
+    logout,
     forgotpassword,
     resetpassword,
     isuserloggedin,

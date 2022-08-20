@@ -17,7 +17,7 @@ import {
 const Login = () => {
     const navigate = useNavigate();
     
-    const handleSubmit = async () => {
+    const handleLogin = async () => {
         const body = { email: formik.values.email, password: formik.values.password };
         const response = await login(body);
         if (response.email) {
@@ -27,7 +27,12 @@ const Login = () => {
             else if (response.role === 'Admin') navigate("/adminpanel", { replace: true });
             else navigate("/", { replace: true });
         }
-    }
+    };
+
+    const handleSubmit = async () => {
+        await handleLogin();
+        window.location.reload();  
+    };
 
     const formik = useFormik({
         initialValues: {
