@@ -12,6 +12,7 @@ const Homepage = lazy(() => new Promise(resolve => setTimeout(() => resolve(impo
 const Login = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/Login')), 1500)));
 const UserPanel = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/UserPanel')), 1500)));
 const Purchase = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/Purchase')), 1500)));
+const Cart = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/Cart')), 1500)));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -51,6 +52,7 @@ const App = () => {
           <Route path=":sidetab" element={<ConditionalRouter component={AdminPanel} protectedRouter />} />
         </Route>
         <Route path='/satin-al' element={<ConditionalRouter component={Purchase} />} />
+        <Route path='/sepetim' element={<ConditionalRouter component={Cart} />} />
       </Routes>
       <Footer />
     </BrowserRouter>

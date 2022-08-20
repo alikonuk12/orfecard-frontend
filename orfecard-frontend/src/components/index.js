@@ -8,6 +8,7 @@ import CardModal from './CardModal';
 import UpdateCardModal from './UpdateCardModal';
 import Table from './Table';
 import Spinner from './Spinner';
+import TotalPriceCard from './TotalPriceCard';
 
 export {
     BurgerMenu,
@@ -19,5 +20,6 @@ export {
     CardModal,
     UpdateCardModal,
     Table,
-    Spinner
+    Spinner,
+    TotalPriceCard
 };
