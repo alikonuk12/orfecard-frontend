@@ -3,7 +3,9 @@ export const INFORMATION_TEXT = 'Birden fazla alım veya kurumsal alımlar için
 export const ZOOM_PROPERTY = {
     SCALE: 2,
     WIDTH: 1000,
-    HEIGHT: 450
+    MOBILE_WIDTH: 300,
+    HEIGHT: 450,
+    MOBILE_HEIGHT: 300
 };
 
 export const TITLES = {
