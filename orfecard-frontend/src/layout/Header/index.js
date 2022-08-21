@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { BurgerMenu } from '../../components';
@@ -9,11 +9,17 @@ const Header = () => {
     const { mode, socialUtilityOffset, featuresOffset } = useSelector(state => state.view);
     const email = localStorage.getItem('email');
 
-    const handleClickHome = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-    const handleClickEco = () => window.scrollTo({ top: socialUtilityOffset, behavior: 'smooth' });
-    const handleClickCard = () => window.scrollTo({ top: featuresOffset, behavior: 'smooth' });
+    const [isOpen, setIsOpen] = useState(false);
+    const handleClickOpen = () => setIsOpen(true);
+    const handleClickClose = () => setIsOpen(false);
+
+    const handleClickMenuItem = (top) => {
+        top && window.scrollTo({ top, behavior: 'smooth' });
+        setIsOpen(false);
+    }
 
     const handleLogout = async () => {
+        handleClickMenuItem();
         const isSuccess = await logout();
         if (isSuccess) {
             localStorage.removeItem('email');
@@ -22,17 +28,43 @@ const Header = () => {
         }
     };
 
-    const status = {
-        login: {
-            to: '/login',
-            text: 'Giriş Yap'
-        },
-        logout: {
+    const items = [
+        {
             to: '/',
-            onClick: () => handleLogout(),
-            text: 'Çıkış Yap'
+            onClick: () => handleClickMenuItem(0),
+            text: 'Anasayfa'
+        },
+        {
+            to: '/#eco',
+            onClick: () => handleClickMenuItem(socialUtilityOffset),
+            text: 'Çevre Dostu'
+        },
+        {
+            to: '/#card',
+            onClick: () => handleClickMenuItem(featuresOffset),
+            text: 'Kart Özellikleri'
+        },
+        {
+            to: '/satin-al',
+            onClick: handleClickMenuItem,
+            text: 'Satın Al'
+        },
+        {
+            to: '/iletisim',
+            onClick: handleClickMenuItem,
+            text: 'İletişim'
+        },
+        {
+            to: email ? '/' : '/login',
+            onClick: email && handleLogout,
+            text: email ? 'Çıkış Yap' : 'Giriş Yap'
+        },
+        {
+            to: '/sepetim',
+            onClick: handleClickMenuItem,
+            text: 'Sepetim'
         }
-    };
+    ];
 
     return (
         <header className={styles.container}>
@@ -41,48 +73,14 @@ const Header = () => {
             </Link>
             {mode === 'DESKTOP' ?
                 <div className={styles.navbars}>
-                    <NavLink to='/' onClick={handleClickHome} className={styles.navLink}>Anasayfa</NavLink>
-                    <NavLink to='/#eco' onClick={handleClickEco} className={styles.navLink}>Çevre Dostu</NavLink>
-                    <NavLink to='/#card' onClick={handleClickCard} className={styles.navLink}>Kart Özellikleri</NavLink>
-                    <NavLink to='/satin-al' className={styles.navLink}>Satın Al</NavLink>
-                    <NavLink to='/iletisim' className={styles.navLink}>İletişim</NavLink>
-                    {email ?
-                        <NavLink
-                            to={status['logout'].to}
-                            onClick={status['logout'].onClick}
-                            className={styles.navLink}>
-                            {status['logout'].text}
-                        </NavLink> :
-                        <NavLink
-                            to={status['login'].to}
-                            onClick={status['login'].onClick}
-                            className={styles.navLink}>
-                            {status['login'].text}
-                        </NavLink>
-                    }
-                    <NavLink to='/sepetim' className={styles.navLink}>Sepetim</NavLink>
+                    {items.map(({ to, onClick, text }) => <NavLink to={to} onClick={onClick} className={styles.navLink}>{text}</NavLink>)}
                 </div> :
-                <BurgerMenu>
-                    <NavLink to='/' onClick={handleClickHome} className={styles.navLink}>Anasayfa</NavLink>
-                    <NavLink to='/#eco' onClick={handleClickEco} className={styles.navLink}>Çevre Dostu</NavLink>
-                    <NavLink to='/#card' onClick={handleClickCard} className={styles.navLink}>Kart Özellikleri</NavLink>
-                    <NavLink to='/satin-al' className={styles.navLink}>Satın Al</NavLink>
-                    <NavLink to='/iletisim' className={styles.navLink}>İletişim</NavLink>
-                    {email ?
-                        <NavLink
-                            to={status['logout'].to}
-                            onClick={status['logout'].onClick}
-                            className={styles.navLink}>
-                            {status['logout'].text}
-                        </NavLink> :
-                        <NavLink
-                            to={status['login'].to}
-                            onClick={status['login'].onClick}
-                            className={styles.navLink}>
-                            {status['login'].text}
-                        </NavLink>
-                    }
-                    <NavLink to='/sepetim' className={styles.navLink}>Sepetim</NavLink>
+                <BurgerMenu
+                    isOpen={isOpen}
+                    handleClickOpen={handleClickOpen}
+                    handleClickClose={handleClickClose}
+                >
+                    {items.map(({ to, onClick, text }) => <NavLink to={to} onClick={onClick} className={styles.navLink}>{text}</NavLink>)}
                 </BurgerMenu>
             }
         </header>

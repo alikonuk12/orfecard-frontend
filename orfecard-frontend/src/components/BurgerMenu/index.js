@@ -1,12 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { slide as Menu } from 'react-burger-menu';
 import styles from './index.module.scss';
 
-const BurgerMenu = ({ children }) => {
-    const [isOpen, setIsOpen] = useState(false);
-    const handleClickOpen = () => setIsOpen(true);
-    const handleClickClose = () => setIsOpen(false);
-
+const BurgerMenu = ({ isOpen, handleClickOpen, handleClickClose, children }) => {
     return (
         <Menu
             right

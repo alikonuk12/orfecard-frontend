@@ -9,9 +9,8 @@ const Homepage = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        window.addEventListener('load', () => {
+        if(document.readyState === 'complete')
             dispatch(TAKE_OFFSET({ socialUtilityOffset: socialUtilityRef.current.offsetTop - 94, featuresOffset: featuresRef.current.offsetTop - 94 }));
-        });
     }, []);
 
     return (
