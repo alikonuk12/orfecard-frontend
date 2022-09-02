@@ -1,13 +1,5 @@
 export const INFORMATION_TEXT = 'Birden fazla alım veya kurumsal alımlar için her kullanıcı adına ayrı ayrı sepete ekleme işlemi yapabilir ya da bir adet alım yapıldıktan sonra sizin için oluşturulacak sayfa üzerinden kart eklemesi yapabilirsiniz.';
 
-export const ZOOM_PROPERTY = {
-    SCALE: 2,
-    WIDTH: 1000,
-    MOBILE_WIDTH: 300,
-    HEIGHT: 450,
-    MOBILE_HEIGHT: 300
-};
-
 export const TITLES = {
     FULLNAME: 'İsim Soyisim',
     COLOR: 'Kart Rengi: ',
@@ -17,7 +9,9 @@ export const TITLES = {
 export const BUTTON_TEXTS = {
     LOGO: 'Logo Ekle',
     DESIGN: 'Kendi Tasarımımı Ekle',
-    ADD: 'SEPETE EKLE'
+    ADD: 'SEPETE EKLE',
+    VERTICAL: 'DİKEY',
+    HORIZONTAL: 'YATAY'
 }
 
 export const COLORS = {

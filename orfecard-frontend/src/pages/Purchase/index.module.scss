@@ -31,6 +31,11 @@
         padding: 30px;
         gap: 40px;
 
+        .image {
+            width: 1000px;
+            height: 450px;
+        }
+
         .rightSide {
             display: flex;
             flex-direction: column;
@@ -71,9 +76,19 @@
                 display: flex;
                 flex-direction: column;
                 width: 75%;
-                gap: 10px;
+                gap: 20px;
 
                 .title {
+                    font: {
+                        family: 'Kanit', sans-serif;
+                        size: 22px;
+                        weight: 400;
+                    }
+                }
+
+                .directionButton {
+                    cursor: pointer;
+
                     font: {
                         family: 'Kanit', sans-serif;
                         size: 22px;
@@ -85,6 +100,7 @@
                     width: calc(100% - 20px);
                     height: 30px;
                     padding: 0 10px;
+
                     border: {
                         radius: 10px;
                         style: none;
@@ -164,8 +180,8 @@
                 display: flex;
                 justify-content: flex-end;
                 width: 100%;
-        
-        
+
+
                 .addButton {
                     cursor: pointer;
                     display: flex;
@@ -174,18 +190,18 @@
                     width: 300px;
                     height: 40px;
                     background-color: #FFFFFF;
-        
+
                     font: {
                         family: 'Kanit', sans-serif;
                         size: 16px;
                         weight: 400;
                     }
-        
+
                     border: {
                         width: 1px;
                         radius: 5px;
                     }
-        
+
                     &:hover {
                         box-shadow: 4px 4px 8px -3px rgba(0, 0, 0, 0.75);
                     }
@@ -201,6 +217,11 @@
         width: calc(100% - 60px);
         padding: 30px;
         gap: 40px;
+
+        .mobileImage {
+            width: 300px;
+            height: 300px;
+        }
 
         .rightSide {
             display: flex;
@@ -252,10 +273,21 @@
                     }
                 }
 
+                .directionButton {
+                    cursor: pointer;
+
+                    font: {
+                        family: 'Kanit', sans-serif;
+                        size: 22px;
+                        weight: 400;
+                    }
+                }
+
                 .input {
                     width: calc(100% - 20px);
                     height: 30px;
                     padding: 0 10px;
+
                     border: {
                         radius: 10px;
                         style: none;
@@ -334,8 +366,8 @@
                 display: flex;
                 justify-content: flex-end;
                 width: 100%;
-        
-        
+
+
                 .addButton {
                     cursor: pointer;
                     display: flex;
@@ -344,18 +376,18 @@
                     width: 300px;
                     height: 40px;
                     background-color: #FFFFFF;
-        
+
                     font: {
                         family: 'Kanit', sans-serif;
                         size: 16px;
                         weight: 400;
                     }
-        
+
                     border: {
                         width: 1px;
                         radius: 5px;
                     }
-        
+
                     &:hover {
                         box-shadow: 4px 4px 8px -3px rgba(0, 0, 0, 0.75);
                     }

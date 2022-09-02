@@ -19,7 +19,7 @@ const Cart = () => {
                 return 'Beyaz';
 
             case '#FF00FF':
-                return 'Pembe';
+                return 'Magenta';
 
             case '#00FF00':
                 return 'Yeşil';

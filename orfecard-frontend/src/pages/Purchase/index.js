@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Zoom from 'react-img-zoom';
 import { ADD_TO_CART } from '../../store/reducers/cartReducer';
-import { BUTTON_TEXTS, COLORS, INFORMATION_TEXT, TITLES, ZOOM_PROPERTY } from './const';
+import { BUTTON_TEXTS, COLORS, INFORMATION_TEXT, TITLES } from './const';
 import getAllProduct from '../../api/product/getAll';
 import { generateUniqueID } from '../../util';
 import styles from './index.module.scss';
@@ -16,10 +15,19 @@ const Purchase = () => {
 
     const [product, setProduct] = useState(undefined);
     const [fullname, setFullname] = useState('');
-    const [direction, setDirection] = useState(true);
-    const [color, setColor] = useState(undefined);
+    const [direction, setDirection] = useState('vertical');
+    const [color, setColor] = useState('#000000');
     const [logo, setLogo] = useState(undefined);
     const [specialDesign, setSpecialDesign] = useState(undefined);
+
+    const colorName = {
+        "#000000": 'black',
+        "#FFFFFF": 'white',
+        "#FF00FF": 'magenta',
+        "#00FF00": 'green',
+        "#0000FF": 'blue',
+        "#FF0000": 'red',
+    }
 
     const handleChangeFullname = ({ target }) => setFullname(target.value);
 
@@ -30,9 +38,7 @@ const Purchase = () => {
 
     const handleClickFirst = () => setDirection('vertical');
     const handleClickSecond = () => setDirection('horizontal');
-
     const handleChangeColor = (color) => setColor(color);
-
     const handleClickLogo = () => logoRef.current.click();
     const handleClickDesign = () => designRef.current.click();
 
@@ -63,22 +69,11 @@ const Purchase = () => {
                 <div className={styles.information}>{INFORMATION_TEXT}</div>
             </div>
             <div className={mode === 'DESKTOP' ? styles.purchaseContainer : styles.mobilePurchaseContainer}>
-                {direction === 'vertical' ?
-                    <>
-                        <Zoom
-                            img='images/deneme.jpg'
-                            zoomScale={ZOOM_PROPERTY.SCALE}
-                            width={mode === 'DESKTOP' ? ZOOM_PROPERTY.WIDTH : ZOOM_PROPERTY.MOBILE_WIDTH}
-                            height={mode === 'DESKTOP' ? ZOOM_PROPERTY.HEIGHT : ZOOM_PROPERTY.MOBILE_HEIGHT}
-                        />
-                    </> :
-                    <Zoom
-                        img='images/deneme2.jpg'
-                        zoomScale={ZOOM_PROPERTY.SCALE}
-                        width={mode === 'DESKTOP' ? ZOOM_PROPERTY.WIDTH : ZOOM_PROPERTY.MOBILE_WIDTH}
-                        height={mode === 'DESKTOP' ? ZOOM_PROPERTY.HEIGHT : ZOOM_PROPERTY.MOBILE_HEIGHT}
-                    />
-                }
+                <img
+                    className={mode === 'DESKTOP' ? styles.image : styles.mobileImage}
+                    src={`images/card_images/${colorName[color]}_${direction}.svg`}
+                    alt='logo'
+                />
                 <div className={styles.rightSide}>
                     <div className={styles.cardInfo}>
                         <div className={styles.productName}>
@@ -113,8 +108,8 @@ const Purchase = () => {
                         </div>
                         <div className={styles.cardDirectionContainer}>
                             <div className={styles.title}>{TITLES.DIRECTION}</div>
-                            <img className={styles.image} src='images/deneme.jpg' alt='first' onClick={handleClickFirst} />
-                            <img className={styles.image} src='images/deneme2.jpg' alt='second' onClick={handleClickSecond} />
+                            <div className={styles.directionButton} onClick={handleClickSecond}>{BUTTON_TEXTS.VERTICAL}</div>
+                            <div className={styles.directionButton} onClick={handleClickFirst}>{BUTTON_TEXTS.HORIZONTAL}</div>
                         </div>
                     </div>
                     <div onClick={addToCart} className={styles.addButtonContainer}>
