@@ -18,8 +18,8 @@ const viewSlice = createSlice({
         TAKE_OFFSET(state, action) {
             switch (action.type) {
                 case 'view/TAKE_OFFSET':
-                    const { socialUtilityOffset, featuresOffset } = action.payload;
-                    return { ...state, socialUtilityOffset, featuresOffset };
+                    const { featuresOffset } = action.payload;
+                    return { ...state, featuresOffset };
                 default:
                     return state;
             }

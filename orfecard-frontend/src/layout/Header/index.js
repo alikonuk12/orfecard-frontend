@@ -6,7 +6,7 @@ import { logout } from '../../api/account';
 import styles from './index.module.scss';
 
 const Header = () => {
-    const { mode, socialUtilityOffset, featuresOffset } = useSelector(state => state.view);
+    const { mode, featuresOffset } = useSelector(state => state.view);
     const email = localStorage.getItem('email');
 
     const [isOpen, setIsOpen] = useState(false);
@@ -28,16 +28,11 @@ const Header = () => {
         }
     };
 
-    const items = [
+    let items = [
         {
             to: '/',
             onClick: () => handleClickMenuItem(0),
             text: 'Anasayfa'
-        },
-        {
-            to: '/#eco',
-            onClick: () => handleClickMenuItem(socialUtilityOffset),
-            text: 'Çevre Dostu'
         },
         {
             to: '/#card',
@@ -65,6 +60,16 @@ const Header = () => {
             text: 'Sepetim'
         }
     ];
+
+    if (email) {
+        const userpanel = {
+            to: '/userpanel',
+            onClick: handleClickMenuItem,
+            text: 'Kullanıcı Paneli'
+        };
+
+        items = [...items.slice(0, 3), userpanel, ...items.slice(3,6)];
+    }
 
     return (
         <header className={styles.container}>
