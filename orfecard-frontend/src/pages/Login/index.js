@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { Link, useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
@@ -16,22 +16,26 @@ import {
 
 const Login = () => {
     const navigate = useNavigate();
-    
+    const [errorMessage, setErrorMessage] = useState('');
+
     const handleLogin = async () => {
         const body = { email: formik.values.email, password: formik.values.password };
-        const response = await login(body);
-        if (response.email) {
-            localStorage.setItem('email', response.email);
-            localStorage.setItem('role', response.role);
-            if (response.role === 'Client') navigate("/userpanel", { replace: true });
-            else if (response.role === 'Admin') navigate("/adminpanel", { replace: true });
+        const { status, data } = await login(body);
+        if (status === 'success') {
+            localStorage.setItem('email', data.email);
+            localStorage.setItem('role', data.role);
+            if (data.role === 'Client') navigate("/userpanel", { replace: true });
+            else if (data.role === 'Admin') navigate("/adminpanel", { replace: true });
             else navigate("/", { replace: true });
+        } else {
+            setErrorMessage(data)
         }
+        return status;
     };
 
     const handleSubmit = async () => {
-        await handleLogin();
-        window.location.reload();  
+        const status = await handleLogin();
+        status === 'success' && window.location.reload();  
     };
 
     const formik = useFormik({
@@ -78,6 +82,7 @@ const Login = () => {
                         errorText={formik.errors.password}
                         onChange={formik.handleChange}
                     />
+                    <div className={styles.errorMessage}>{errorMessage}</div>
                     <Link to='/forgotpassword'>{FORGOT_PASSWORD_TEXT}</Link>
                     <button type='submit' className={styles.button}>{LOGIN_BUTTON_TEXT}</button>
                 </form>

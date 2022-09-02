@@ -6,29 +6,41 @@
     height: calc(100vh - 94px);
     background-color: #000000;
 
-    .loginContainer{
+    .loginContainer {
         display: flex;
         flex-direction: column;
         padding: 50px 75px;
+
         border: {
             radius: 30px;
             style: solid;
             color: #D7B46A;
         }
+
         gap: 50px;
 
         .loginHeader {
             color: #FFFFFF;
+
             font: {
                 size: 36px;
                 weight: 300;
             }
         }
 
-        .formContainer{
+        .formContainer {
             display: flex;
             flex-direction: column;
             gap: 10px;
+
+            .errorMessage {
+                color: red;
+
+                font: {
+                    size: 14px;
+                    weight: 400;
+                }
+            }
 
             .button {
                 margin-top: 20px;
