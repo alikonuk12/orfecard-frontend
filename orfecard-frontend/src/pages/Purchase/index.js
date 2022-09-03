@@ -66,7 +66,7 @@ const Purchase = () => {
     return (
         <div className={styles.container}>
             <div className={styles.informationContainer}>
-                <div className={styles.information}>{INFORMATION_TEXT}</div>
+                <div className={mode === 'DESKTOP' ? styles.information : styles.mobileInformation}>{INFORMATION_TEXT}</div>
             </div>
             <div className={mode === 'DESKTOP' ? styles.purchaseContainer : styles.mobilePurchaseContainer}>
                 <figure className={styles.figure}>
