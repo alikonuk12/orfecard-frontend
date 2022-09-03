@@ -37,19 +37,34 @@ const Profile = () => {
                     <div className={styles.companyName}>{profile?.companyName}</div>
                     <div className={styles.fullname}>{profile?.name + ' ' + profile?.lastname}</div>
                     <div className={styles.rowContainer}>
-                        <div className={styles.row}>{profile?.address}</div>
+                        <div className={styles.row}>
+                            <img className={styles.icon} src='/icons/profile_icons/location.svg' alt='location' />
+                            <div className={styles.text}>{profile?.address}</div>
+                        </div>
                     </div>
                     <div className={styles.rowContainer}>
-                        <div className={styles.row}>{profile?.website}</div>
+                        <div className={styles.row}>
+                            <img className={styles.icon} src='/icons/profile_icons/website.svg' alt='website' />
+                            <div className={styles.text}>{profile?.website}</div>
+                        </div>
                     </div>
                     <div className={styles.rowContainer}>
-                        <div className={styles.row}>{profile?.phoneNumber}</div>
+                        <div className={styles.row}>
+                            <img className={styles.icon} src='/icons/profile_icons/phone_number.svg' alt='phone_number' />
+                            <div className={styles.text}>{profile?.phoneNumber}</div>
+                        </div>
                     </div>
                     <div className={styles.rowContainer}>
-                        <div className={styles.row}>{profile?.landlineNumber + ' - ' + profile?.extNumber}</div>
+                        <div className={styles.row}>
+                            <img className={styles.icon} src='/icons/profile_icons/landline_number.svg' alt='landline_number' />
+                            <div className={styles.text}>{profile?.landlineNumber + ' - ' + profile?.extNumber}</div>
+                        </div>
                     </div>
                     <div className={styles.rowContainer}>
-                        <div className={styles.row}>{profile?.email}</div>
+                        <div className={styles.row}>
+                            <img className={styles.icon} src='/icons/profile_icons/email.svg' alt='email' />
+                            <div className={styles.text}>{profile?.email}</div>
+                        </div>
                     </div>
                     <div onClick={handleAddToContact} className={styles.addToContactContainer}>
                         <div className={styles.addToContact}>REHBERE EKLE</div>

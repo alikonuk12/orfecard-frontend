@@ -90,13 +90,22 @@
         };
 
         .row {
-            font: {
-                family: 'Kanit', sans-serif;
-                size: 14px;
-                weight: 400;
+            display: flex;
+            gap: 10px;
+
+            .icon {
+                width: 25px;
             }
-            width: 100%;
-            color: #000000;
+
+            .text {
+                font: {
+                    family: 'Kanit', sans-serif;
+                    size: 14px;
+                    weight: 400;
+                }
+                width: 100%;
+                color: #000000;
+            }
         }
     }
 

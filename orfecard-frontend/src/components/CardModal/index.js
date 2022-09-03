@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { getcarddetail } from '../../api/account';
-import { E_COMMERCE_FIELDS, FIELDS, SOCIAL_MEDIA_FIELDS } from './const';
+import { E_COMMERCE_FIELDS, SOCIAL_MEDIA_FIELDS } from './const';
 import styles from './index.module.scss';
 
 const CardModal = ({ serialNumber, onClose }) => {
@@ -35,19 +35,30 @@ const CardModal = ({ serialNumber, onClose }) => {
                             className={styles.image}
                         />
                     </div>
+                    <div className={styles.companyName}>{detail?.companyName}</div>
+                    <div className={styles.fullname}>{detail?.name + ' ' + detail?.lastname}</div>
+                    <div className={styles.rowContainer}>
+                        <div className={styles.row}>{detail?.address}</div>
+                    </div>
+                    <div className={styles.rowContainer}>
+                        <div className={styles.row}>{detail?.website}</div>
+                    </div>
+                    <div className={styles.rowContainer}>
+                        <div className={styles.row}>{detail?.phoneNumber}</div>
+                    </div>
+                    <div className={styles.rowContainer}>
+                        <div className={styles.row}>{detail?.landlineNumber + ' - ' + detail?.extNumber}</div>
+                    </div>
+                    <div className={styles.rowContainer}>
+                        <div className={styles.row}>{detail?.email}</div>
+                    </div>
                     <div>
-                        {Object.keys(FIELDS).map(el => (
-                            <>
-                                {detail[el] && <div>{FIELDS[el] + ' ' + detail[el]}</div>
-                                }
-                            </>
-                        ))}
                         <div className={styles.iconContainer}>
                             {Object.keys(SOCIAL_MEDIA_FIELDS).map(el => (
                                 <>
                                     {detail[el] &&
                                         <a href={detail[el]} target='_blank' rel="noreferrer">
-                                            <img className={mode === 'DESKTOP' ? styles.desktopIcon : styles.mobileIcon} src={`icons/card_info_icons/${SOCIAL_MEDIA_FIELDS[el]}`} alt='icons' />
+                                            <img className={mode === 'DESKTOP' ? styles.desktopIcon : styles.mobileIcon} src={`/icons/card_info_icons/${SOCIAL_MEDIA_FIELDS[el]}`} alt='icons' />
                                         </a>
                                     }
                                 </>
@@ -58,7 +69,7 @@ const CardModal = ({ serialNumber, onClose }) => {
                                 <>
                                     {detail[el] &&
                                         <a href={detail[el]} target='_blank' rel="noreferrer">
-                                            <img className={mode === 'DESKTOP' ? styles.desktopIcon : styles.mobileIcon} src={`icons/card_info_icons/${E_COMMERCE_FIELDS[el]}`} alt='icons' />
+                                            <img className={mode === 'DESKTOP' ? styles.desktopIcon : styles.mobileIcon} src={`/icons/card_info_icons/${E_COMMERCE_FIELDS[el]}`} alt='icons' />
                                         </a>
                                     }
                                 </>

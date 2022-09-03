@@ -1,17 +1,5 @@
-export const FIELDS = {
-    companyName: 'Şirket Ünvanı:',
-    name: 'Ad:',
-    lastname: 'Soyad:',
-    phoneNumber: 'GSM:',
-    landlineNumber: 'Sabit Hat:',
-    extNumber: 'Dahili No:',
-    email: 'E-posta:',
-    website: 'Websitesi:',
-    address: 'Adres:',
-    location: 'Konum:'
-}
-
 export const SOCIAL_MEDIA_FIELDS = {
+    location: 'location.svg',
     facebook: 'facebook.svg',
     twitter: 'twitter.svg',
     instagram: 'instagram.svg',
