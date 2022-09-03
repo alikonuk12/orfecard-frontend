@@ -1,0 +1,1 @@
+export const CONTENT = 'Kartınızın silinmesini onaylıyor musunuz?';
