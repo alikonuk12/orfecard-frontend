@@ -8,6 +8,8 @@ import getcarddetail from './getcarddetail';
 import createcarddetail from './createcarddetail';
 import updatecarddetail from './updatecarddetail';
 import deletecarddetail from './deletecarddetail';
+import getprofile from './getprofile';
+import addtocontact from './addtocontact';
 
 export { 
     login,
@@ -19,5 +21,7 @@ export {
     getcarddetail, 
     createcarddetail,
     updatecarddetail, 
-    deletecarddetail 
+    deletecarddetail,
+    getprofile,
+    addtocontact
 };
