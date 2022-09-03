@@ -82,6 +82,9 @@ const Purchase = () => {
                                 src={`images/card_images/${colorName[color]}_${direction}.svg`}
                                 alt='card'
                             />
+                            <figcaption>
+                                <img className={styles[`${direction}_logo_figcaption`]} src={logo || 'images/logo.svg'} alt='logo' />
+                            </figcaption>
                             <figcaption className={color === '#FFFFFF' ? styles[`white_${direction}_figcaption`] : styles[`${direction}_figcaption`]}>
                                 {fullname}
                             </figcaption>
