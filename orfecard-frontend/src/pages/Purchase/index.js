@@ -69,11 +69,24 @@ const Purchase = () => {
                 <div className={styles.information}>{INFORMATION_TEXT}</div>
             </div>
             <div className={mode === 'DESKTOP' ? styles.purchaseContainer : styles.mobilePurchaseContainer}>
-                <img
-                    className={mode === 'DESKTOP' ? styles.image : styles.mobileImage}
-                    src={specialDesign || `images/card_images/${colorName[color]}_${direction}.svg`}
-                    alt='card'
-                />
+                <figure className={styles.figure}>
+                    {!!specialDesign ?
+                        <img
+                            className={styles.image}
+                            src={specialDesign}
+                            alt='special_design'
+                        /> :
+                        <>
+                            <img
+                                className={styles.image}
+                                src={`images/card_images/${colorName[color]}_${direction}.svg`}
+                                alt='card'
+                            />
+                            <figcaption className={color === '#FFFFFF' ? styles[`white_${direction}_figcaption`] : styles[`${direction}_figcaption`]}>
+                                {fullname}
+                            </figcaption>
+                        </>}
+                </figure>
                 <div className={styles.rightSide}>
                     <div className={styles.cardInfo}>
                         <div className={styles.productName}>
@@ -108,8 +121,12 @@ const Purchase = () => {
                         </div>
                         <div className={styles.cardDirectionContainer}>
                             <div className={styles.title}>{TITLES.DIRECTION}</div>
-                            <div className={styles.directionButton} onClick={handleClickSecond}>{BUTTON_TEXTS.VERTICAL}</div>
-                            <div className={styles.directionButton} onClick={handleClickFirst}>{BUTTON_TEXTS.HORIZONTAL}</div>
+                            <div onClick={handleClickSecond} className={styles.directionButton}>
+                                {BUTTON_TEXTS.HORIZONTAL}
+                            </div>
+                            <div onClick={handleClickFirst} className={styles.directionButton}>
+                                {BUTTON_TEXTS.VERTICAL}
+                            </div>
                         </div>
                     </div>
                     <div onClick={addToCart} className={styles.addButtonContainer}>
