@@ -10,7 +10,7 @@ const TotalPriceCard = ({ total }) => {
     const [generalTotal, setGeneralTotal] = useState(0);
 
     useEffect(() => {
-        if (total) {
+        if (typeof total === 'number') {
             const kdv = total * 0.18;
             setKdv(kdv);
             const generalTotal = total + kdv;

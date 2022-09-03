@@ -71,8 +71,8 @@ const Purchase = () => {
             <div className={mode === 'DESKTOP' ? styles.purchaseContainer : styles.mobilePurchaseContainer}>
                 <img
                     className={mode === 'DESKTOP' ? styles.image : styles.mobileImage}
-                    src={`images/card_images/${colorName[color]}_${direction}.svg`}
-                    alt='logo'
+                    src={specialDesign || `images/card_images/${colorName[color]}_${direction}.svg`}
+                    alt='card'
                 />
                 <div className={styles.rightSide}>
                     <div className={styles.cardInfo}>
