@@ -74,7 +74,7 @@ const Header = () => {
     return (
         <header className={styles.container}>
             <Link to="/" className={styles.logo}>
-                <img src='images/logo.svg' alt='logo' />
+                <img src='/images/logo.svg' alt='logo' />
             </Link>
             {mode === 'DESKTOP' ?
                 <div className={styles.navbars}>
