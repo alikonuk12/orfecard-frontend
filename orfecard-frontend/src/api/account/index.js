@@ -10,6 +10,7 @@ import updatecarddetail from './updatecarddetail';
 import deletecarddetail from './deletecarddetail';
 import getprofile from './getprofile';
 import addtocontact from './addtocontact';
+import signup from './signup';
 
 export { 
     login,
@@ -23,5 +24,6 @@ export {
     updatecarddetail, 
     deletecarddetail,
     getprofile,
-    addtocontact
+    addtocontact,
+    signup
 };

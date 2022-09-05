@@ -14,6 +14,7 @@ const UserPanel = lazy(() => new Promise(resolve => setTimeout(() => resolve(imp
 const Purchase = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/Purchase')), 1500)));
 const Cart = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/Cart')), 1500)));
 const Profile = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/Profile')), 1500)));
+const Signup = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/Signup')), 1500)));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -55,6 +56,7 @@ const App = () => {
         <Route path='/satin-al' element={<ConditionalRouter component={Purchase} />} />
         <Route path='/sepetim' element={<ConditionalRouter component={Cart} />} />
         <Route path='/profile/:profileId' element={<ConditionalRouter component={Profile} />} />
+        <Route path='/kayit-ol' element={<ConditionalRouter component={Signup} />} />
       </Routes>
       <Footer />
     </BrowserRouter>

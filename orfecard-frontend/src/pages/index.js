@@ -6,6 +6,7 @@ import UserPanel from './UserPanel';
 import AdminPanel from './AdminPanel';
 import Purchase from './Purchase';
 import Profile from './Profile';
+import Signup from './Signup';
 
 export {
     Homepage,
@@ -15,5 +16,6 @@ export {
     UserPanel,
     AdminPanel,
     Purchase,
-    Profile
+    Profile,
+    Signup
 };

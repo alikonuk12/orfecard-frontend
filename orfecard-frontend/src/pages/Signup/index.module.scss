@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 25px 0;
+    background-color: #000000;
+
+    .signupContainer {
+        display: flex;
+        flex-direction: column;
+        padding: 50px 75px;
+
+        border: {
+            radius: 30px;
+            style: solid;
+            color: #D7B46A;
+        }
+
+        gap: 50px;
+
+        .signupHeader {
+            color: #FFFFFF;
+
+            font: {
+                size: 36px;
+                weight: 300;
+            }
+        }
+
+        .formContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .errorMessage {
+                color: red;
+
+                font: {
+                    size: 14px;
+                    weight: 400;
+                }
+            }
+
+            .button {
+                margin-top: 20px;
+                padding: 8px 5px;
+            }
+        }
+    }
+}
