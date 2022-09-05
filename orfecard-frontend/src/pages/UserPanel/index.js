@@ -45,7 +45,7 @@ const UserPanel = () => {
             <CardModal serialNumber={selectedCard} onClose={handleClickClose} />
             <UpdateCardModal serialNumber={selectedEditCard} onClose={handleClickEditClose} />
             <div className={styles.container}>
-                <div className={styles.greeting}>Merhaba {localStorage.getItem('email')},</div>
+                <div className={styles.greeting}>Hoşgeldiniz,</div>
                 <div className={styles.line} />
                 <div className={styles.subContainer}>
                     {cards.map(el =>

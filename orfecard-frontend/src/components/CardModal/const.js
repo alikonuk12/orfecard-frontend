@@ -1,5 +1,10 @@
-export const SOCIAL_MEDIA_FIELDS = {
+export const FIELDS = {
     location: 'location.svg',
+    tax_information: 'tax_information.svg',
+    bank_information: 'bank_information.svg'
+}
+
+export const SOCIAL_MEDIA_FIELDS = {
     facebook: 'facebook.svg',
     twitter: 'twitter.svg',
     instagram: 'instagram.svg',

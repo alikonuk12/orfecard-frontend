@@ -8,6 +8,9 @@ export const FIELDS = {
     website: 'Websitesi:',
     address: 'Adres:',
     location: 'Konum:',
+    tax_information: 'Vergi Bilgileri:',
+    bank_information: 'Banka Bilgileri:',
+    e_catalog: 'E Katalog: '
 }
 
 export const SOCIAL_MEDIA_FIELDS = {

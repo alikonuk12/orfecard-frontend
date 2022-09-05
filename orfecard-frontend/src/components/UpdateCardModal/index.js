@@ -28,6 +28,9 @@ const UpdateCardModal = ({ serialNumber, onClose }) => {
             website: detail?.website,
             address: detail?.address,
             location: detail?.location,
+            tax_information: detail?.tax_information,
+            bank_information: detail?.bank_information,
+            e_catalog: detail?.e_catalog,
             companyName: detail?.companyName,
             image: detail?.image,
             facebook: detail?.facebook,
@@ -98,6 +101,15 @@ const UpdateCardModal = ({ serialNumber, onClose }) => {
         setDetail(data);
     }
 
+    const handleChangeEcatalog = ({ target }) => {
+        const file = target.files[0];
+        const reader = new FileReader();
+        reader.onload = () => {
+            formik.setFieldValue('e_catalog', reader.result);
+        }
+        reader.readAsDataURL(file);
+    }
+
     useEffect(() => {
         serialNumber && handleGetDetail();
     }, [serialNumber]);
@@ -135,10 +147,12 @@ const UpdateCardModal = ({ serialNumber, onClose }) => {
                                 <Input
                                     id={el}
                                     name={el}
-                                    value={formik.values[el]}
+                                    type={el === 'e_catalog' ? 'file' : 'text'}
+                                    value={el === 'e_catalog' ? '' : formik.values[el]}
+                                    rows={el === 'tax_information' ? 3 : el === 'bank_information' && 4}
                                     isError={formik.touched[el] && formik.errors[el]}
                                     errorText={formik.errors[el]}
-                                    onChange={formik.handleChange}
+                                    onChange={el === 'e_catalog' ? handleChangeEcatalog : formik.handleChange}
                                 />
                             </div>
                         ))}

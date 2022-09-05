@@ -1,18 +1,28 @@
 import React from "react";
 import styles from './index.module.scss';
 
-const Input = ({ id, name, type, title, value, isError, errorText, onChange }) => {
+const Input = ({ id, name, type, title, value, isError, errorText, onChange, rows }) => {
     return (
         <div>
             <div className={styles.title}>{title}</div>
-            <input
-                id={id}
-                name={name}
-                type={type}
-                value={value}
-                onChange={onChange}
-                className={styles.input}
-            />
+            {!!rows ?
+                <textarea
+                    id={id}
+                    name={name}
+                    type={type}
+                    rows={rows}
+                    value={value}
+                    onChange={onChange}
+                    className={styles.input}
+                /> :
+                <input
+                    id={id}
+                    name={name}
+                    type={type}
+                    value={type === 'file' ? value.name : value}
+                    onChange={onChange}
+                    className={styles.input}
+                />}
             {isError && <div className={styles.error}>{errorText}</div>}
         </div>
     );
