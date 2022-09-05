@@ -10,6 +10,7 @@ import Table from './Table';
 import Spinner from './Spinner';
 import TotalPriceCard from './TotalPriceCard';
 import ApproveModal from './ApproveModal';
+import InfoModal from './InfoModal';
 
 export {
     BurgerMenu,
@@ -23,5 +24,6 @@ export {
     Table,
     Spinner,
     TotalPriceCard,
-    ApproveModal
+    ApproveModal,
+    InfoModal
 };
