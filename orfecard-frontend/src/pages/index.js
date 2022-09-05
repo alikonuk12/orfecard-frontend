@@ -7,6 +7,7 @@ import AdminPanel from './AdminPanel';
 import Purchase from './Purchase';
 import Profile from './Profile';
 import Signup from './Signup';
+import NfcCompatiblePhones from './NfcCompatiblePhones';
 
 export {
     Homepage,
@@ -17,5 +18,6 @@ export {
     AdminPanel,
     Purchase,
     Profile,
-    Signup
+    Signup,
+    NfcCompatiblePhones
 };

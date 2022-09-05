@@ -15,6 +15,7 @@ const Purchase = lazy(() => new Promise(resolve => setTimeout(() => resolve(impo
 const Cart = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/Cart')), 1500)));
 const Profile = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/Profile')), 1500)));
 const Signup = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/Signup')), 1500)));
+const NfcCompatiblePhones = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/NfcCompatiblePhones')), 1500)));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -57,6 +58,7 @@ const App = () => {
         <Route path='/sepetim' element={<ConditionalRouter component={Cart} />} />
         <Route path='/profile/:profileId' element={<ConditionalRouter component={Profile} />} />
         <Route path='/kayit-ol' element={<ConditionalRouter component={Signup} />} />
+        <Route path='/nfc-uyumlu-telefonlar' element={<ConditionalRouter component={NfcCompatiblePhones} />} />
       </Routes>
       <Footer />
     </BrowserRouter>
