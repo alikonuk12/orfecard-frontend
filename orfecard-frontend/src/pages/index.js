@@ -8,6 +8,7 @@ import Purchase from './Purchase';
 import Profile from './Profile';
 import Signup from './Signup';
 import NfcCompatiblePhones from './NfcCompatiblePhones';
+import Settings from './Settings';
 
 export {
     Homepage,
@@ -19,5 +20,6 @@ export {
     Purchase,
     Profile,
     Signup,
-    NfcCompatiblePhones
+    NfcCompatiblePhones,
+    Settings
 };

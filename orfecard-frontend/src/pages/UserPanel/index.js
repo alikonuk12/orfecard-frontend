@@ -45,7 +45,15 @@ const UserPanel = () => {
             <CardModal serialNumber={selectedCard} onClose={handleClickClose} />
             <UpdateCardModal serialNumber={selectedEditCard} onClose={handleClickEditClose} />
             <div className={styles.container}>
-                <div className={styles.greeting}>Hoşgeldiniz,</div>
+                <div className={styles.topContainer}>
+                    <div className={styles.greeting}>Hoşgeldiniz,</div>
+                    <img
+                        className={styles.settings}
+                        src='/icons/setings_icon.svg'
+                        alt='settings'
+                        onClick={() => navigate('settings', { replace: true })}
+                    />
+                </div>
                 <div className={styles.line} />
                 <div className={styles.subContainer}>
                     {cards.map(el =>

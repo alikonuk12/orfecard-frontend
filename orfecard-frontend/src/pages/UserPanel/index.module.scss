@@ -5,10 +5,22 @@
     padding: 10px 20px;
     gap: 25px;
 
-    .greeting {
-        font: {
-            size: 28px;
-            weight: 400;
+    .topContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .greeting {
+            font: {
+                size: 28px;
+                weight: 400;
+            }
+        }
+
+        .settings {
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
         }
     }
 

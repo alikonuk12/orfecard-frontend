@@ -16,6 +16,7 @@ const Cart = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('
 const Profile = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/Profile')), 1500)));
 const Signup = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/Signup')), 1500)));
 const NfcCompatiblePhones = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/NfcCompatiblePhones')), 1500)));
+const Settings = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/Settings')), 1500)));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -46,13 +47,16 @@ const App = () => {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<ConditionalRouter component={Homepage} />} />
+        <Route path='/' element={<ConditionalRouter component={Homepage} />} />
         <Route path='/login' element={<ConditionalRouter component={Login} />} />
         <Route path='/forgotpassword' element={<ConditionalRouter component={ForgotPassword} />} />
         <Route path='/resetpassword/:token' element={<ConditionalRouter component={ResetPassword} />} />
-        <Route path='/userpanel' element={<ConditionalRouter component={UserPanel} protectedRouter />} />
+        <Route path='/userpanel'>
+          <Route index element={<ConditionalRouter component={UserPanel} protectedRouter />} />
+          <Route path='settings' element={<ConditionalRouter component={Settings} protectedRouter />} />
+        </Route>
         <Route path='/adminpanel' element={<ConditionalRouter component={AdminPanel} protectedRouter />}>
-          <Route path=":sidetab" element={<ConditionalRouter component={AdminPanel} protectedRouter />} />
+          <Route path=':sidetab' element={<ConditionalRouter component={AdminPanel} protectedRouter />} />
         </Route>
         <Route path='/satin-al' element={<ConditionalRouter component={Purchase} />} />
         <Route path='/sepetim' element={<ConditionalRouter component={Cart} />} />
