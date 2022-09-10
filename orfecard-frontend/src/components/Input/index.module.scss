@@ -1,5 +1,6 @@
 .title {
     color: #FFFFFF;
+
     font: {
         size: 18px;
         weight: 400;
@@ -10,10 +11,17 @@
     font-size: 14px;
     padding: 5px 15px;
     width: 200px;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
 }
 
 .error {
     color: red;
+
     font: {
         size: 14px;
         weight: 400;

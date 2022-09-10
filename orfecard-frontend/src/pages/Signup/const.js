@@ -5,8 +5,9 @@ export const SIGNUP_INPUTS = {
     COMPANY_TITLE: 'Firma Ünvanı / Ad Soyad:',
     EMAIL: 'E-mail:',
     PHONE_NUMBER: 'Cep Telefonu:',
-    ADDRESS: 'Adress:',
-    TAX_ADMINISTRATION: 'Vergi Dairesi (İsteğe Bağlı):',
+    ADDRESS: 'Adres:',
+    TAX_ADMINISTRATION: 'Vergi Dairesi:',
+    TCKN: 'TCKN:',
     TAX_NUMBER: 'Vergi No:',
     PASSWORD: 'Şifre:',
     PASSWORD_AGAIN: 'Şifre Tekrar:'
@@ -26,9 +27,14 @@ export const ADDRESS_VALIDATION_TEXT = {
     REQUIRED: 'Adres alanı gereklidir'
 };
 
-export const TAX_ADMINISTRATION_VALIDATION_TEXT = {
-    REQUIRED: 'Vergi dairesi alanı gereklidir'
+export const TCKN_VALIDATION_TEXT = {
+    LENGTH: 'TCKN alanı 11 hane olmalıdır'
 };
+
+
+export const COMPANY_TITLE_VALIDATION_TEXT = {
+    REQUIRED: 'Firma Ünvanı / Ad Soyad alanı gereklidir'
+}
 
 export const PASSWORD_VALIDATION_TEXT = {
     REQUIRED: 'Şifre alanı gereklidir',

@@ -9,11 +9,12 @@ import {
     SIGNUP_PANEL_HEADER,
     SIGNUP_INPUTS,
     EMAIL_VALIDATION_TEXT,
+    COMPANY_TITLE_VALIDATION_TEXT,
     PHONE_NUMBER_VALIDATION_TEXT,
     ADDRESS_VALIDATION_TEXT,
-    TAX_ADMINISTRATION_VALIDATION_TEXT,
     PASSWORD_VALIDATION_TEXT,
     SIGNUP_BUTTON_TEXT,
+    TCKN_VALIDATION_TEXT,
 } from './const';
 
 const Signup = () => {
@@ -46,6 +47,7 @@ const Signup = () => {
             address: '',
             taxAdministration: '',
             taxNumber: '',
+            TCKN: '',
             companyTitle: '',
             landlineNumber: '',
             extNumber: '',
@@ -65,11 +67,15 @@ const Signup = () => {
             address: yup
                 .string()
                 .required(ADDRESS_VALIDATION_TEXT.REQUIRED),
-            taxAdministration: yup
-                .string()
-                .required(TAX_ADMINISTRATION_VALIDATION_TEXT.REQUIRED),
+            taxAdministration: yup.string(),
             taxNumber: yup.string(),
-            companyTitle: yup.string(),
+            TCKN: yup
+                .string()
+                .nullable()
+                .length(11, TCKN_VALIDATION_TEXT.LENGTH),
+            companyTitle: yup
+                .string()
+                .required(COMPANY_TITLE_VALIDATION_TEXT.REQUIRED),
             password: yup
                 .string()
                 .required(PASSWORD_VALIDATION_TEXT.REQUIRED)
@@ -147,6 +153,16 @@ const Signup = () => {
                         value={formik.values.taxNumber}
                         isError={formik.touched.taxNumber && formik.errors.taxNumber}
                         errorText={formik.errors.taxNumber}
+                        onChange={formik.handleChange}
+                    />
+                    <Input
+                        id="TCKN"
+                        name="TCKN"
+                        type="number"
+                        title={SIGNUP_INPUTS.TCKN}
+                        value={formik.values.TCKN}
+                        isError={formik.touched.TCKN && formik.errors.TCKN}
+                        errorText={formik.errors.TCKN}
                         onChange={formik.handleChange}
                     />
                     <Input

@@ -11,10 +11,8 @@ const updateuser = async (body) => {
             data: body
         };
 
-        const { status } = (await axios(config))?.data;
-
-        if (status !== 'success') return;
-        return true;
+        const { status, data } = (await axios(config))?.data;
+        return { status, data };
     } catch (e) {
         console.log(e);
     }

@@ -6,18 +6,18 @@ import { Input } from '../../components';
 import {
     SETTINGS_PANEL_HEADER,
     SETTINGS_INPUTS,
-    EMAIL_VALIDATION_TEXT,
     PHONE_NUMBER_VALIDATION_TEXT,
     ADDRESS_VALIDATION_TEXT,
-    TAX_ADMINISTRATION_VALIDATION_TEXT,
-    PASSWORD_VALIDATION_TEXT,
     SETTINGS_BUTTON_TEXT,
+    TCKN_VALIDATION_TEXT,
+    COMPANY_TITLE_VALIDATION_TEXT
 } from './const';
 import styles from './index.module.scss';
 import { getuser, updateuser } from '../../api/account';
 
 const Settings = () => {
     const navigate = useNavigate();
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleGetUser = async () => {
         const user = await getuser();
@@ -25,8 +25,9 @@ const Settings = () => {
     }
 
     const handleSubmit = async () => {
-        const isSuccess = await updateuser(formik.values);
-        isSuccess && navigate('/userpanel', { replace: true });
+        const { status, data } = await updateuser(formik.values);
+        if (status === 'success') return navigate('/userpanel', { replace: true });
+        setErrorMessage(data);
     }
 
     useEffect(() => {
@@ -35,7 +36,6 @@ const Settings = () => {
 
     const formik = useFormik({
         initialValues: {
-            email: '',
             phoneNumber: '',
             website: '',
             address: '',
@@ -48,10 +48,6 @@ const Settings = () => {
         },
         onSubmit: handleSubmit,
         validationSchema: yup.object({
-            email: yup
-                .string()
-                .email(EMAIL_VALIDATION_TEXT.EMAIL)
-                .required(EMAIL_VALIDATION_TEXT.REQUIRED),
             phoneNumber: yup
                 .string()
                 .required(PHONE_NUMBER_VALIDATION_TEXT.REQUIRED)
@@ -60,12 +56,15 @@ const Settings = () => {
             address: yup
                 .string()
                 .required(ADDRESS_VALIDATION_TEXT.REQUIRED),
-            taxAdministration: yup
-                .string()
-                .required(TAX_ADMINISTRATION_VALIDATION_TEXT.REQUIRED),
+            taxAdministration: yup.string(),
             taxNumber: yup.string(),
-            TCKN: yup.string(),
-            companyTitle: yup.string(),
+            TCKN: yup
+                .string()
+                .nullable()
+                .length(11, TCKN_VALIDATION_TEXT.LENGTH),
+            companyTitle: yup
+                .string()
+                .required(COMPANY_TITLE_VALIDATION_TEXT.REQUIRED),
             landlineNumber: yup.string(),
             extNumber: yup.string()
         })
@@ -87,13 +86,13 @@ const Settings = () => {
                         onChange={formik.handleChange}
                     />
                     <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        title={SETTINGS_INPUTS.EMAIL}
-                        value={formik.values.email}
-                        isError={formik.touched.email && formik.errors.email}
-                        errorText={formik.errors.email}
+                        id="website"
+                        name="website"
+                        type="text"
+                        title={SETTINGS_INPUTS.WEBSITE}
+                        value={formik.values.website}
+                        isError={formik.touched.website && formik.errors.website}
+                        errorText={formik.errors.website}
                         onChange={formik.handleChange}
                     />
                     <Input
@@ -136,6 +135,37 @@ const Settings = () => {
                         errorText={formik.errors.taxNumber}
                         onChange={formik.handleChange}
                     />
+                    <Input
+                        id="TCKN"
+                        name="TCKN"
+                        type="number"
+                        title={SETTINGS_INPUTS.TCKN}
+                        value={formik.values.TCKN}
+                        isError={formik.touched.TCKN && formik.errors.TCKN}
+                        errorText={formik.errors.TCKN}
+                        onChange={formik.handleChange}
+                    />
+                    <Input
+                        id="landlineNumber"
+                        name="landlineNumber"
+                        type="text"
+                        title={SETTINGS_INPUTS.LANDLINE_NUMBER}
+                        value={formik.values.landlineNumber}
+                        isError={formik.touched.landlineNumber && formik.errors.landlineNumber}
+                        errorText={formik.errors.landlineNumber}
+                        onChange={formik.handleChange}
+                    />
+                    <Input
+                        id="extNumber"
+                        name="extNumber"
+                        type="text"
+                        title={SETTINGS_INPUTS.EXT_NUMBER}
+                        value={formik.values.extNumber}
+                        isError={formik.touched.extNumber && formik.errors.extNumber}
+                        errorText={formik.errors.extNumber}
+                        onChange={formik.handleChange}
+                    />
+                    <div className={styles.errorMessage}>{errorMessage}</div>
                     <button type='submit' className={styles.button}>{SETTINGS_BUTTON_TEXT}</button>
                 </form>
             </div>

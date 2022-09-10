@@ -3,11 +3,18 @@ export const SETTINGS_BUTTON_TEXT = 'Güncelle';
 
 export const SETTINGS_INPUTS = {
     COMPANY_TITLE: 'Firma Ünvanı / Ad Soyad:',
-    EMAIL: 'E-mail:',
+    WEBSITE: 'Websitesi:',
+    TCKN: 'TCKN:',
     PHONE_NUMBER: 'Cep Telefonu:',
-    ADDRESS: 'Adress:',
+    ADDRESS: 'Adres:',
     TAX_ADMINISTRATION: 'Vergi Dairesi:',
-    TAX_NUMBER: 'Vergi No:'
+    TAX_NUMBER: 'Vergi No:',
+    LANDLINE_NUMBER: 'Sabit Hat:',
+    EXT_NUMBER: 'Dahili no:'
+};
+
+export const COMPANY_TITLE_VALIDATION_TEXT = {
+    REQUIRED: 'Firma Ünvanı / Ad Soyad alanı gereklidir'
 };
 
 export const EMAIL_VALIDATION_TEXT = {
@@ -24,8 +31,8 @@ export const ADDRESS_VALIDATION_TEXT = {
     REQUIRED: 'Adres alanı gereklidir'
 };
 
-export const TAX_ADMINISTRATION_VALIDATION_TEXT = {
-    REQUIRED: 'Vergi dairesi alanı gereklidir'
+export const TCKN_VALIDATION_TEXT = {
+    LENGTH: 'TCKN 11 hane olmalıdır'
 };
 
 export const PASSWORD_VALIDATION_TEXT = {
