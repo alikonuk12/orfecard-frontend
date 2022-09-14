@@ -9,6 +9,10 @@ import Profile from './Profile';
 import Signup from './Signup';
 import NfcCompatiblePhones from './NfcCompatiblePhones';
 import Settings from './Settings';
+import AydınlatmaMetni from './AydınlatmaMetni';
+import UyelikSozlesmesi from './UyelikSozlesmesi';
+import KVKK from './KVKK';
+import SSS from './SSS';
 
 export {
     Homepage,
@@ -21,5 +25,9 @@ export {
     Profile,
     Signup,
     NfcCompatiblePhones,
-    Settings
+    Settings,
+    AydınlatmaMetni,
+    UyelikSozlesmesi,
+    KVKK,
+    SSS
 };

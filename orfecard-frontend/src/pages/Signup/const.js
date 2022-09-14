@@ -42,3 +42,7 @@ export const PASSWORD_VALIDATION_TEXT = {
     MAX: 'En çok 20 hane olmalıdır',
     MATCH: 'Şifreler birbirileriyle eşleşmelidir'
 };
+
+export const AGREEMENT_VALIDATION_TEXT = {
+    REQUIRED: 'Metinlerin onaylanması gereklidir'
+};

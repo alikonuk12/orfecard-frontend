@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 import { Input } from '../../components';
 import styles from './index.module.scss';
@@ -15,6 +15,7 @@ import {
     PASSWORD_VALIDATION_TEXT,
     SIGNUP_BUTTON_TEXT,
     TCKN_VALIDATION_TEXT,
+    AGREEMENT_VALIDATION_TEXT,
 } from './const';
 
 const Signup = () => {
@@ -52,7 +53,9 @@ const Signup = () => {
             landlineNumber: '',
             extNumber: '',
             password: '',
-            password_again: ''
+            password_again: '',
+            agreement: false
+
         },
         onSubmit: handleSubmit,
         validationSchema: yup.object({
@@ -86,7 +89,10 @@ const Signup = () => {
                 .required(PASSWORD_VALIDATION_TEXT.REQUIRED)
                 .min(8, PASSWORD_VALIDATION_TEXT.MIN)
                 .max(20, PASSWORD_VALIDATION_TEXT.MAX)
-                .oneOf([yup.ref('password'), null], PASSWORD_VALIDATION_TEXT.MATCH)
+                .oneOf([yup.ref('password'), null], PASSWORD_VALIDATION_TEXT.MATCH),
+            agreement: yup
+                .boolean()
+                .oneOf([true], AGREEMENT_VALIDATION_TEXT.REQUIRED)
         })
     });
 
@@ -185,6 +191,23 @@ const Signup = () => {
                         errorText={formik.errors.password_again}
                         onChange={formik.handleChange}
                     />
+                    <div className={styles.agreementContainer}>
+                        <div className={styles.agreementText}>
+                            <Link to='/uyelik-sozlesmesi' target='_blank'>Üyelik Sözleşmesi</Link> ve <Link to='/aydinlatma-metni' target='_blank'>Aydınlatma Metni</Link>'ni okudum, anladım, onaylıyorum.
+                        </div>
+                        <input
+                            id="agreement"
+                            name="agreement"
+                            type="checkbox"
+                            value={formik.values.agreement}
+                            onChange={formik.handleChange}
+                        />
+                    </div>
+                    {(formik.touched.agreement && formik.errors.agreement) &&
+                        <div className={styles.errorMessage}>
+                            {formik.errors.agreement}
+                        </div>
+                    }
                     <div className={styles.errorMessage}>{errorMessage}</div>
                     <button type='submit' className={styles.button}>{SIGNUP_BUTTON_TEXT}</button>
                 </form>

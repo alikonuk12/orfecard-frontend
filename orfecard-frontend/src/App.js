@@ -17,6 +17,10 @@ const Profile = lazy(() => new Promise(resolve => setTimeout(() => resolve(impor
 const Signup = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/Signup')), 1500)));
 const NfcCompatiblePhones = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/NfcCompatiblePhones')), 1500)));
 const Settings = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/Settings')), 1500)));
+const AydınlatmaMetni = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/AydınlatmaMetni')), 1500)));
+const UyelikSozlesmesi = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/UyelikSozlesmesi')), 1500)));
+const KVKK = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/KVKK')), 1500)));
+const SSS = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/SSS')), 1500)));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -63,6 +67,10 @@ const App = () => {
         <Route path='/profile/:profileId' element={<ConditionalRouter component={Profile} />} />
         <Route path='/kayit-ol' element={<ConditionalRouter component={Signup} />} />
         <Route path='/nfc-uyumlu-telefonlar' element={<ConditionalRouter component={NfcCompatiblePhones} />} />
+        <Route path='/aydinlatma-metni' element={<ConditionalRouter component={AydınlatmaMetni} />} />
+        <Route path='/uyelik-sozlesmesi' element={<ConditionalRouter component={UyelikSozlesmesi} />} />
+        <Route path='/kvkk' element={<ConditionalRouter component={KVKK} />} />
+        <Route path='/sikca-sorulan-sorular' element={<ConditionalRouter component={SSS} />} />
       </Routes>
       <Footer />
     </BrowserRouter>
