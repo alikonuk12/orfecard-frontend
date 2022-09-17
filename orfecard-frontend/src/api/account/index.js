@@ -13,6 +13,7 @@ import addtocontact from './addtocontact';
 import signup from './signup';
 import getuser from './getuser';
 import updateuser from './updateuser';
+import sendcontactmail from './sendcontactmail';
 
 export { 
     login,
@@ -29,5 +30,6 @@ export {
     addtocontact,
     signup,
     getuser,
-    updateuser
+    updateuser,
+    sendcontactmail
 };

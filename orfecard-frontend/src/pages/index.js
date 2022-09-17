@@ -13,6 +13,8 @@ import AydınlatmaMetni from './AydınlatmaMetni';
 import UyelikSozlesmesi from './UyelikSozlesmesi';
 import KVKK from './KVKK';
 import SSS from './SSS';
+import Contact from './Contact';
+import CookiePolicy from './CookiePolicy';
 
 export {
     Homepage,
@@ -29,5 +31,7 @@ export {
     AydınlatmaMetni,
     UyelikSozlesmesi,
     KVKK,
-    SSS
+    SSS,
+    Contact,
+    CookiePolicy
 };

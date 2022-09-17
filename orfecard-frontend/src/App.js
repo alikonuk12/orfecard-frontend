@@ -1,6 +1,7 @@
 import React, { useEffect, lazy, Suspense } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import CookieConsent from "react-cookie-consent";
 import { MODE } from './store/reducers/viewReducer';
 import { Header, Footer } from './layout';
 import { Spinner } from './components';
@@ -21,6 +22,8 @@ const AydınlatmaMetni = lazy(() => new Promise(resolve => setTimeout(() => reso
 const UyelikSozlesmesi = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/UyelikSozlesmesi')), 1500)));
 const KVKK = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/KVKK')), 1500)));
 const SSS = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/SSS')), 1500)));
+const Contact = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/Contact')), 1500)));
+const CookiePolicy = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/CookiePolicy')), 1500)));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -71,8 +74,13 @@ const App = () => {
         <Route path='/uyelik-sozlesmesi' element={<ConditionalRouter component={UyelikSozlesmesi} />} />
         <Route path='/kvkk' element={<ConditionalRouter component={KVKK} />} />
         <Route path='/sikca-sorulan-sorular' element={<ConditionalRouter component={SSS} />} />
+        <Route path='/iletisim' element={<ConditionalRouter component={Contact} />} />
+        <Route path='/cerez-politikasi' element={<ConditionalRouter component={CookiePolicy} />} />
       </Routes>
       <Footer />
+      <CookieConsent buttonText='OKUDUM ONAYLIYORUM' >
+        <div style={{ fontSize: '12px'}}>Alışveriş deneyiminizi iyileştirmek ve hizmetlerimizi daha iyi hale getirmek için yasal düzenlemelere uygun çerezler (cookies) kullanıyoruz. Web sitemizi ziyaret etmeye ve alışveriş yapmaya devam etmeniz durumunda, çerez kullanmaya devam edeceğiz. Çerez tercihlerinizi düzenlemek veya çerez politikamız hakkında detaylı bilgi almak için <Link style={{ color: '#FFFFFF' }} to='/cerez-politikasi'>buraya tıklayınız</Link></div>
+      </CookieConsent>
     </BrowserRouter>
   );
 }
