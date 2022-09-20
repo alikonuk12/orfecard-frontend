@@ -17,3 +17,5 @@ export const PASSWORD_VALIDATION_TEXT = {
     MIN: 'En az 8 hane olmalıdır',
     MAX: 'En çok 20 hane olmalıdır'
 };
+
+export const SIGN_UP_BUTTON_TEXT = 'Kayıt Ol';

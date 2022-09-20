@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { TEXT } from './const';
+import { isLoggedIn } from '../../util';
 import styles from './index.module.scss';
 
 const TotalPriceCard = ({ total }) => {
     const { mode } = useSelector(state => state.view);
+    const navigate = useNavigate();
 
     const [kdv, setKdv] = useState(0);
     const [generalTotal, setGeneralTotal] = useState(0);
+
+    const handleClickButton = () => {
+        if (!isLoggedIn()) return navigate('/login', { replace: true });
+    }
 
     useEffect(() => {
         if (typeof total === 'number') {
@@ -17,6 +24,7 @@ const TotalPriceCard = ({ total }) => {
             setGeneralTotal(generalTotal);
         }
     }, [total]);
+
     return (
         <div className={mode === 'DESKTOP' ? styles.container : styles.mobileContainer}>
             <div className={styles.priceContainer}>
@@ -35,7 +43,7 @@ const TotalPriceCard = ({ total }) => {
                     <div className={styles.text}>₺{generalTotal}</div>
                 </div>
             </div>
-            <div className={styles.buttonContainer}>
+            <div onClick={handleClickButton} className={styles.buttonContainer}>
                 <div className={styles.button}>{TEXT.BUTTON}</div>
             </div>
         </div>

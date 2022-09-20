@@ -9,7 +9,7 @@
     .loginContainer {
         display: flex;
         flex-direction: column;
-        padding: 50px 75px;
+        padding: 30px 75px;
 
         border: {
             radius: 30px;
@@ -17,7 +17,7 @@
             color: #D7B46A;
         }
 
-        gap: 50px;
+        gap: 45px;
 
         .loginHeader {
             color: #FFFFFF;
@@ -43,9 +43,16 @@
             }
 
             .button {
+                cursor: pointer;
                 margin-top: 20px;
                 padding: 8px 5px;
             }
+        }
+
+        .button {
+            cursor: pointer;
+            margin-top: 20px;
+            padding: 8px 5px;
         }
     }
 }

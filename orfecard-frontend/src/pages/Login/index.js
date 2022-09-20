@@ -11,7 +11,8 @@ import {
     EMAIL_VALIDATION_TEXT,
     PASSWORD_VALIDATION_TEXT,
     LOGIN_BUTTON_TEXT,
-    FORGOT_PASSWORD_TEXT
+    FORGOT_PASSWORD_TEXT,
+    SIGN_UP_BUTTON_TEXT
 } from './const';
 
 const Login = () => {
@@ -37,6 +38,8 @@ const Login = () => {
         const status = await handleLogin();
         status === 'success' && window.location.reload();  
     };
+
+    const handleClickSignUp = () => navigate('/kayit-ol', { replace: true });
 
     const formik = useFormik({
         initialValues: {
@@ -86,6 +89,7 @@ const Login = () => {
                     <Link to='/forgotpassword'>{FORGOT_PASSWORD_TEXT}</Link>
                     <button type='submit' className={styles.button}>{LOGIN_BUTTON_TEXT}</button>
                 </form>
+                <button onClick={handleClickSignUp} className={styles.button}>{SIGN_UP_BUTTON_TEXT}</button>
             </div>
         </div>
     );
