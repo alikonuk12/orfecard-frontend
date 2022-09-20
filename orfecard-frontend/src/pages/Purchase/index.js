@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { NotificationManager } from 'react-notifications';
 import { ADD_TO_CART } from '../../store/reducers/cartReducer';
 import { BUTTON_TEXTS, COLORS, INFORMATION_TEXT, TITLES } from './const';
 import getAllProduct from '../../api/product/getAll';
@@ -55,8 +56,16 @@ const Purchase = () => {
     }
 
     const addToCart = () => {
-        const pid = generateUniqueID();
-        dispatch(ADD_TO_CART({ pid, product, fullname, color, direction, logo, specialDesign }));
+        try {
+            new Promise(resolve => {
+                const pid = generateUniqueID();
+                dispatch(ADD_TO_CART({ pid, product, fullname, color, direction, logo, specialDesign }));
+                resolve();
+            });
+            NotificationManager.success('Sepete Eklendi', 'Başarılı');
+        } catch (error) {
+            NotificationManager.error('Sepete Eklenme Başarısız', 'Hata!');
+        }
     }
 
     useEffect(() => {

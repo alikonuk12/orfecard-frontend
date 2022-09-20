@@ -1,12 +1,13 @@
 import React, { useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import CookieConsent from "react-cookie-consent";
+import CookieConsent from 'react-cookie-consent';
+import { NotificationContainer } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 import { MODE } from './store/reducers/viewReducer';
 import { Header, Footer } from './layout';
 import { Spinner } from './components';
 
-const AdminPanel = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/AdminPanel')), 1500)));
 const ForgotPassword = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/ForgotPassword')), 1500)));
 const ResetPassword = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/ResetPassword')), 1500)));
 const Homepage = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/Homepage')), 1500)));
@@ -53,6 +54,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Header />
+      <NotificationContainer />
       <Routes>
         <Route path='/' element={<ConditionalRouter component={Homepage} />} />
         <Route path='/login' element={<ConditionalRouter component={Login} />} />
@@ -61,9 +63,6 @@ const App = () => {
         <Route path='/userpanel'>
           <Route index element={<ConditionalRouter component={UserPanel} protectedRouter />} />
           <Route path='settings' element={<ConditionalRouter component={Settings} protectedRouter />} />
-        </Route>
-        <Route path='/adminpanel' element={<ConditionalRouter component={AdminPanel} protectedRouter />}>
-          <Route path=':sidetab' element={<ConditionalRouter component={AdminPanel} protectedRouter />} />
         </Route>
         <Route path='/satin-al' element={<ConditionalRouter component={Purchase} />} />
         <Route path='/sepetim' element={<ConditionalRouter component={Cart} />} />
