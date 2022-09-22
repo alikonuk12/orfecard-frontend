@@ -98,7 +98,7 @@ const Contact = () => {
                         <div className={styles.rowContainer}>
                             <img
                                 className={styles.image}
-                                src={`/icons/profile_icons/${el}.svg`}
+                                src={`/images/icons/profile_icons/${el}.svg`}
                                 alt='icon'
                             />
                             <div>{INFOS[el]}</div>

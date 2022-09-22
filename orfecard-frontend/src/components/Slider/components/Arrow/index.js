@@ -7,7 +7,7 @@ const Arrow = ({ direction, moveSlide }) => {
       onClick={moveSlide}
       className={direction === "next" ? styles.nextArrow : styles.prevArrow}
     >
-      <img src={direction === "next" ? 'icons/right_arrow.svg' : 'icons/left_arrow.svg'} alt='arrow' />
+      <img src={direction === "next" ? '/images/icons/right_arrow.svg' : '/images/icons/left_arrow.svg'} alt='arrow' />
     </div>
   );
 }

@@ -49,7 +49,7 @@ const UserPanel = () => {
                     <div className={styles.greeting}>Hoşgeldiniz,</div>
                     <img
                         className={styles.settings}
-                        src='/icons/setings_icon.svg'
+                        src='/images/icons/setings_icon.svg'
                         alt='settings'
                         onClick={() => navigate('settings', { replace: true })}
                     />
@@ -66,7 +66,7 @@ const UserPanel = () => {
                     )}
                     <img
                         className={styles.add}
-                        src='/icons/add_icon.svg'
+                        src='/images/icons/add_icon.svg'
                         alt='add'
                         onClick={() => navigate("/satin-al", { replace: true })}
                     />

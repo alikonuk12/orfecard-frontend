@@ -123,7 +123,7 @@ const UpdateCardModal = ({ serialNumber, onClose }) => {
                 >
                     <div className={styles.closeContainer} onClick={handleClose}>
                         <img
-                            src='/icons/close_cross_icon.png'
+                            src='/images/icons/close_cross_icon.png'
                             alt='modal_close_icon'
                             className={styles.close}
                         />
@@ -136,7 +136,7 @@ const UpdateCardModal = ({ serialNumber, onClose }) => {
                             height: '150px',
                             cursor: 'pointer'
                         }}>
-                            <img src="/icons/add_icon.svg" alt='add_icon' />
+                            <img src="/images/icons/add_icon.svg" alt='add_icon' />
                             <input ref={inputRef} hidden type='file' onChange={handleChangeImage} />
                         </div>
                     </div>

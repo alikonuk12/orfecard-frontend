@@ -66,7 +66,7 @@ const Cart = () => {
                                     <div className={styles.color}>Kart Rengi: {detectColor(color)}</div>
                                 </div>
                                 <div className={styles.price}>₺{price}</div>
-                                <img onClick={() => handleRemoveFromCart(pid)} className={styles.trash} src='icons/trash_icon.svg' alt='trash' />
+                                <img onClick={() => handleRemoveFromCart(pid)} className={styles.trash} src='/images/icons/trash_icon.svg' alt='trash' />
                             </div>
                             {cart.length !== index + 1 && <div className={styles.insideLine} />}
                         </>

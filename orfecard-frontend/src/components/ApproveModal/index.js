@@ -12,7 +12,7 @@ const ApproveModal = ({ content, onClose, handleSubmit }) => {
                 <form className={mode === 'DESKTOP' ? styles.desktopModal : styles.mobileModal} onSubmit={handleSubmit}>
                     <div className={styles.closeContainer} onClick={onClose}>
                         <img
-                            src='/icons/close_cross_icon.png'
+                            src='/images/icons/close_cross_icon.png'
                             alt='modal_close_icon'
                             className={styles.close}
                         />

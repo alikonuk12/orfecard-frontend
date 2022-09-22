@@ -20,7 +20,7 @@ const UserCard = ({ data, onClickCard, onClickEdit, handleDeleteCard }) => {
             <div className={styles.iconContainer}>
                 <div className={styles.editContainer} onClick={() => onClickEdit(data?.serialNumber)}>
                     <img
-                        src='/icons/edit_icon.svg'
+                        src='/images/icons/edit_icon.svg'
                         alt='edit_icon'
                         className={styles.edit}
                     />
@@ -41,7 +41,7 @@ const UserCard = ({ data, onClickCard, onClickEdit, handleDeleteCard }) => {
             <div className={styles.iconContainer}>
                 <div className={styles.deleteContainer} onClick={handleClickDelete}>
                     <img
-                        src='/icons/delete_icon.svg'
+                        src='/images/icons/delete_icon.svg'
                         alt='delete_icon'
                         className={styles.delete}
                     />

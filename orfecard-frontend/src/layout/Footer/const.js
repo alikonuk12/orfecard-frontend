@@ -38,11 +38,11 @@ export const SECOND_COLUMN = [
 
 export const THIRD_COLUMN = [
     {
-        img: '/icons/youtube_icon.png',
+        img: '/images/icons/youtube_icon.png',
         to: 'https://www.youtube.com/channel/UCth9T2o_BQZHTwsXRZQ747A'
     },
     {
-        img: '/icons/instagram_icon.png',
+        img: '/images/icons/instagram_icon.png',
         to: 'https://www.instagram.com/orfecard'
     },
 ];

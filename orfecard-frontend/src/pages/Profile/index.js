@@ -48,31 +48,31 @@ const Profile = () => {
                         <div className={styles.fullname}>{profile?.name + ' ' + profile?.lastname}</div>
                         <div className={styles.rowContainer}>
                             <div className={styles.row}>
-                                <img className={styles.icon} src='/icons/profile_icons/location.svg' alt='location' />
+                                <img className={styles.icon} src='/images/icons/profile_icons/location.svg' alt='location' />
                                 <div className={styles.text}>{profile?.address}</div>
                             </div>
                         </div>
                         <div className={styles.rowContainer}>
                             <div className={styles.row}>
-                                <img className={styles.icon} src='/icons/profile_icons/website.svg' alt='website' />
+                                <img className={styles.icon} src='/images/icons/profile_icons/website.svg' alt='website' />
                                 <div className={styles.text}>{profile?.website}</div>
                             </div>
                         </div>
                         <div className={styles.rowContainer}>
                             <div className={styles.row}>
-                                <img className={styles.icon} src='/icons/profile_icons/phone_number.svg' alt='phone_number' />
+                                <img className={styles.icon} src='/images/icons/profile_icons/phone_number.svg' alt='phone_number' />
                                 <div className={styles.text}>{profile?.phoneNumber}</div>
                             </div>
                         </div>
                         <div className={styles.rowContainer}>
                             <div className={styles.row}>
-                                <img className={styles.icon} src='/icons/profile_icons/landline_number.svg' alt='landline_number' />
+                                <img className={styles.icon} src='/images/icons/profile_icons/landline_number.svg' alt='landline_number' />
                                 <div className={styles.text}>{profile?.landlineNumber + ' - ' + profile?.extNumber}</div>
                             </div>
                         </div>
                         <div className={styles.rowContainer}>
                             <div className={styles.row}>
-                                <img className={styles.icon} src='/icons/profile_icons/email.svg' alt='email' />
+                                <img className={styles.icon} src='/images/icons/profile_icons/email.svg' alt='email' />
                                 <div className={styles.text}>{profile?.email}</div>
                             </div>
                         </div>
@@ -86,10 +86,10 @@ const Profile = () => {
                                         {
                                             el === 'location' ?
                                                 <a href={profile[el]} target='_blank' rel="noreferrer">
-                                                    <img className={mode === 'DESKTOP' ? styles.desktopIcon : styles.mobileIcon} src={`/icons/card_info_icons/${FIELDS[el]}`} alt='icons' />
+                                                    <img className={mode === 'DESKTOP' ? styles.desktopIcon : styles.mobileIcon} src={`/images/icons/card_info_icons/${FIELDS[el]}`} alt='icons' />
                                                 </a> :
                                                 <div onClick={() => handleClickInfoModal(profile[el])}>
-                                                    <img className={mode === 'DESKTOP' ? styles.desktopIcon : styles.mobileIcon} src={`/icons/card_info_icons/${FIELDS[el]}`} alt='icons' />
+                                                    <img className={mode === 'DESKTOP' ? styles.desktopIcon : styles.mobileIcon} src={`/images/icons/card_info_icons/${FIELDS[el]}`} alt='icons' />
                                                 </div>
                                         }
                                     </>
@@ -100,7 +100,7 @@ const Profile = () => {
                                     <>
                                         {profile[el] &&
                                             <a href={profile[el]} target='_blank' rel="noreferrer">
-                                                <img className={mode === 'DESKTOP' ? styles.desktopIcon : styles.mobileIcon} src={`/icons/card_info_icons/${SOCIAL_MEDIA_FIELDS[el]}`} alt='icons' />
+                                                <img className={mode === 'DESKTOP' ? styles.desktopIcon : styles.mobileIcon} src={`/images/icons/card_info_icons/${SOCIAL_MEDIA_FIELDS[el]}`} alt='icons' />
                                             </a>
                                         }
                                     </>
@@ -111,7 +111,7 @@ const Profile = () => {
                                     <>
                                         {profile[el] &&
                                             <a href={profile[el]} target='_blank' rel="noreferrer">
-                                                <img className={mode === 'DESKTOP' ? styles.desktopIcon : styles.mobileIcon} src={`/icons/card_info_icons/${E_COMMERCE_FIELDS[el]}`} alt='icons' />
+                                                <img className={mode === 'DESKTOP' ? styles.desktopIcon : styles.mobileIcon} src={`/images/icons/card_info_icons/${E_COMMERCE_FIELDS[el]}`} alt='icons' />
                                             </a>
                                         }
                                     </>
