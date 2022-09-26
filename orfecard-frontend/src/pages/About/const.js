@@ -1,0 +1,2 @@
+export const HEADER = 'HAKKIMIZDA';
+export const CONTENT = 'Orfe Card, 2022 yılında İstanbul/Kadıköy’de Ozan ASLAN tarafından kurulmuştur. 2018 yılında kurulmuş olan Orfe Reklam dijital baskı, matbaa ve tabela sektörlerinde vermiş olduğu hizmetlerin ardından NFC Dijital kartvizit sektöründe de pazardaki yerini almıştır. Düzenli yapılan renk kalibrasyonları, uzman kadrosu ve alanında tecrübeli iş ortakları ile müşteri memnuniyetini birinci sırada tutmaktadır.';
