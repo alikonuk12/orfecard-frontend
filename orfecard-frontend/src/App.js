@@ -25,6 +25,9 @@ const KVKK = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('
 const SSS = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/SSS')), 1500)));
 const Contact = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/Contact')), 1500)));
 const CookiePolicy = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/CookiePolicy')), 1500)));
+const About = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/About')), 1500)));
+const TeslimatVeIadeKosullari = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/TeslimatVeIadeKosullari')), 1500)));
+const MesafeliSatisSozlesmesi = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/MesafeliSatisSozlesmesi')), 1500)));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -75,6 +78,9 @@ const App = () => {
         <Route path='/sikca-sorulan-sorular' element={<ConditionalRouter component={SSS} />} />
         <Route path='/iletisim' element={<ConditionalRouter component={Contact} />} />
         <Route path='/cerez-politikasi' element={<ConditionalRouter component={CookiePolicy} />} />
+        <Route path='/hakkimizda' element={<ConditionalRouter component={About} />} />
+        <Route path='/teslimat-ve-iade-kosullari' element={<ConditionalRouter component={TeslimatVeIadeKosullari} />} />
+        <Route path='/mesafeli-satis-sozlesmesi' element={<ConditionalRouter component={MesafeliSatisSozlesmesi} />} />
       </Routes>
       <Footer />
       <CookieConsent buttonText='OKUDUM ONAYLIYORUM' >

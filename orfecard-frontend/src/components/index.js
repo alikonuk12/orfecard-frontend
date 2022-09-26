@@ -11,6 +11,7 @@ import Spinner from './Spinner';
 import TotalPriceCard from './TotalPriceCard';
 import ApproveModal from './ApproveModal';
 import InfoModal from './InfoModal';
+import PDFViewer from './PDFViewer';
 
 export {
     BurgerMenu,
@@ -25,5 +26,6 @@ export {
     Spinner,
     TotalPriceCard,
     ApproveModal,
-    InfoModal
+    InfoModal,
+    PDFViewer
 };

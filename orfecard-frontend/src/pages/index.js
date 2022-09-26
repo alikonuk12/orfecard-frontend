@@ -14,6 +14,9 @@ import KVKK from './KVKK';
 import SSS from './SSS';
 import Contact from './Contact';
 import CookiePolicy from './CookiePolicy';
+import About from './About';
+import TeslimatVeIadeKosullari from './TeslimatVeIadeKosullari';
+import MesafeliSatisSozlesmesi from './MesafeliSatisSozlesmesi';
 
 export {
     Homepage,
@@ -31,5 +34,8 @@ export {
     KVKK,
     SSS,
     Contact,
-    CookiePolicy
+    CookiePolicy,
+    About,
+    TeslimatVeIadeKosullari,
+    MesafeliSatisSozlesmesi
 };
