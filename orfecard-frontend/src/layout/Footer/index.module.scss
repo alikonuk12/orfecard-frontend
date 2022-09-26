@@ -12,6 +12,12 @@
         style: solid;
         color: #D7B46A;
     }
+
+    .subContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
 }
 
 .mobileContainer {
@@ -28,5 +34,11 @@
         width: 4px;
         style: solid;
         color: #D7B46A;
+    }
+
+    .subContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
     }
 }

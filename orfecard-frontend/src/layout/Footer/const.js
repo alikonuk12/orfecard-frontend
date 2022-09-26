@@ -15,6 +15,10 @@ export const FIRST_COLUMN = [
         text: 'İletişim',
         to: '/iletisim'
     },
+    {
+        text: 'Hakkımızda',
+        to: '/hakkimizda'
+    }
 ];
 
 export const SECOND_COLUMN = [

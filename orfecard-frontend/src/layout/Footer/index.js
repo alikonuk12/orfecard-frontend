@@ -11,7 +11,10 @@ const Footer = () => {
         <footer className={mode === 'DESKTOP' ? styles.container : styles.mobileContainer}>
             <Column data={FIRST_COLUMN} />
             <Column data={SECOND_COLUMN} />
-            <Column data={THIRD_COLUMN} />
+            <div className={styles.subContainer}>
+                <Column data={THIRD_COLUMN} />
+                <img width={250} src='/images/icons/footer_iyzico.svg' alt='footer_iyzico' />
+            </div>
         </footer>
     );
 }
