@@ -38,6 +38,29 @@
         }
     }
 
+    .agreementContainer {
+        display: flex;
+        flex-direction: row;
+
+        .agreementText {
+            color: #000000;
+
+            font: {
+                size: 14px;
+                weight: 400;
+            }
+        }
+    }
+
+    .errorMessage {
+        color: red;
+
+        font: {
+            size: 14px;
+            weight: 400;
+        }
+    }
+
     .buttonContainer {
         display: flex;
         justify-content: flex-end;
@@ -107,6 +130,29 @@
             height: 2px;
             background-color: #D7B46A;
             opacity: 0.75;
+        }
+    }
+
+    .agreementContainer {
+        display: flex;
+        flex-direction: row;
+
+        .agreementText {
+            color: #000000;
+
+            font: {
+                size: 14px;
+                weight: 400;
+            }
+        }
+    }
+
+    .errorMessage {
+        color: red;
+
+        font: {
+            size: 14px;
+            weight: 400;
         }
     }
 

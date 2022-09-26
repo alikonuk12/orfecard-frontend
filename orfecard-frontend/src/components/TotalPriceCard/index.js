@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { TEXT } from './const';
 import { isLoggedIn } from '../../util';
 import styles from './index.module.scss';
@@ -11,10 +11,18 @@ const TotalPriceCard = ({ total }) => {
 
     const [kdv, setKdv] = useState(0);
     const [generalTotal, setGeneralTotal] = useState(0);
+    const [agreement, setAgreement] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleClickButton = () => {
-        if (!isLoggedIn()) return navigate('/login', { replace: true });
+        if (!agreement) return setErrorMessage('Metinlerin onaylanması gereklidir');
+        if (!isLoggedIn()) {
+            navigate('/login', { replace: true });
+            setErrorMessage('');
+        }
     }
+
+    const handleChangeAgreement = () => setAgreement(!agreement);
 
     useEffect(() => {
         if (typeof total === 'number') {
@@ -43,8 +51,24 @@ const TotalPriceCard = ({ total }) => {
                     <div className={styles.text}>₺{generalTotal}</div>
                 </div>
             </div>
+            <div className={styles.agreementContainer}>
+                <div className={styles.agreementText}>
+                    <Link to='/teslimat-ve-iade-kosullari' target='_blank'>Teslimat ve İade Koşulları</Link> ve <Link to='/mesafeli-satis-sozlesmesi' target='_blank'>Mesafeli Satış Sözleşmesi</Link>'ni okudum, anladım, onaylıyorum.
+                </div>
+                <input
+                    type="checkbox"
+                    value={agreement}
+                    onChange={handleChangeAgreement}
+                />
+            </div>
+            <div className={styles.errorMessage}>{errorMessage}</div>
             <div onClick={handleClickButton} className={styles.buttonContainer}>
-                <div className={styles.button}>{TEXT.BUTTON}</div>
+                <div className={styles.button}>
+                    <img
+                        src='/images/icons/payment_button.svg'
+                        alt='payment_icon'
+                    />
+                </div>
             </div>
         </div>
     );
