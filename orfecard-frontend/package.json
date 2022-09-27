@@ -1,5 +1,6 @@
 {
   "name": "orfecard-frontend",
+  "homepage": "https://orfecard.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
