@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import styles from './index.module.scss';
@@ -14,6 +15,7 @@ import {
 import { sendcontactmail } from '../../api/account';
 
 const Contact = () => {
+    const { mode } = useSelector(state => state.view);
     const [message, setMessage] = useState('');
 
     const handleSubmit = async () => {
@@ -44,7 +46,7 @@ const Contact = () => {
     });
 
     return (
-        <div className={styles.container}>
+        <div className={mode === 'DESKTOP' ? styles.container : styles.mobileContainer}>
             <form className={styles.leftSide} onSubmit={formik.handleSubmit}>
                 <div className={styles.inputContainer}>
                     <div className={styles.inputHeader}>{CONTACT_INPUTS.NAME}</div>
