@@ -19,8 +19,8 @@ const Profile = () => {
     }
 
     const handleAddToContact = async () => {
-        const response = await addtocontact(profileId);
-        const data = new Blob([response], {type: 'text/x-vcard'});
+        const response = await addtocontact({profileId, link: window.location.href});
+        const data = new Blob([response], { type: 'text/x-vcard' });
         saveAs(data, "contact.vcf");
     }
 
@@ -39,13 +39,13 @@ const Profile = () => {
                     <div className={mode === 'DESKTOP' ? styles.desktopModal : styles.mobileModal}>
                         <div className={styles.imageContainer}>
                             <img
-                                src={profile?.image}
+                                src={profile?.image || '/images/icons/person_icon.svg'}
                                 alt='profile_image'
                                 className={styles.image}
                             />
                         </div>
                         <div className={styles.companyName}>{profile?.companyName}</div>
-                        <div className={styles.fullname}>{profile?.name + ' ' + profile?.lastname}</div>
+                        <div className={styles.fullname}>{(profile?.name || '') + ' ' + (profile?.lastname || '')}</div>
                         <div className={styles.rowContainer}>
                             <div className={styles.row}>
                                 <img className={styles.icon} src='/images/icons/profile_icons/location.svg' alt='location' />
@@ -67,7 +67,7 @@ const Profile = () => {
                         <div className={styles.rowContainer}>
                             <div className={styles.row}>
                                 <img className={styles.icon} src='/images/icons/profile_icons/landline_number.svg' alt='landline_number' />
-                                <div className={styles.text}>{profile?.landlineNumber + ' - ' + profile?.extNumber}</div>
+                                <div className={styles.text}>{(profile?.landlineNumber && profile?.extNumber) && profile?.landlineNumber + ' - ' + profile?.extNumber}</div>
                             </div>
                         </div>
                         <div className={styles.rowContainer}>
@@ -84,13 +84,13 @@ const Profile = () => {
                                 {Object.keys(FIELDS).map(el => (
                                     <>
                                         {
-                                            el === 'location' ?
-                                                <a href={profile[el]} target='_blank' rel="noreferrer">
+                                            (el === 'tax_information' || el === 'bank_information') ?
+                                                profile[el] && <div onClick={() => handleClickInfoModal(profile[el])}>
                                                     <img className={mode === 'DESKTOP' ? styles.desktopIcon : styles.mobileIcon} src={`/images/icons/card_info_icons/${FIELDS[el]}`} alt='icons' />
-                                                </a> :
-                                                <div onClick={() => handleClickInfoModal(profile[el])}>
+                                                </div> :
+                                                profile[el] && <a href={profile[el]} target='_blank' rel="noreferrer">
                                                     <img className={mode === 'DESKTOP' ? styles.desktopIcon : styles.mobileIcon} src={`/images/icons/card_info_icons/${FIELDS[el]}`} alt='icons' />
-                                                </div>
+                                                </a>
                                         }
                                     </>
                                 ))}

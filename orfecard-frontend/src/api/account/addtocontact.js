@@ -1,13 +1,14 @@
 import axios from 'axios';
 import { BASE_URL } from '../constant';
 
-const addtocontact = async (profileId) => {
+const addtocontact = async ({ profileId, link }) => {
     try {
         const config = {
             baseURL: BASE_URL,
             withCredentials: true,
             url: `/api/account/addtocontact/${profileId}`,
-            method: 'GET'
+            method: 'POST',
+            data: { link }
         };
 
         const { status, data } = (await axios(config))?.data;
