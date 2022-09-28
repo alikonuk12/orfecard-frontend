@@ -10,7 +10,11 @@ export const FIELDS = {
     location: 'Konum:',
     tax_information: 'Vergi Bilgileri:',
     bank_information: 'Banka Bilgileri:',
-    e_catalog: 'E Katalog: '
+    e_catalog_1: 'E-Katalog 1: ',
+    e_catalog_2: 'E-Katalog 2: ',
+    e_catalog_3: 'E-Katalog 3: ',
+    e_catalog_4: 'E-Katalog 4: ',
+    e_catalog_5: 'E-Katalog 5: '
 }
 
 export const SOCIAL_MEDIA_FIELDS = {
@@ -39,7 +43,6 @@ export const E_COMMERCE_FIELDS = {
 }
 
 export const VALIDATION_TEXT = {
-    REQUIRED: 'Doldurulması gereklidir',
     LENGTH: 'Yeterli uzunlukta değildir',
     EMAIL: 'E-mail formatında olmalıdır',
     PHONE_NUMBER: 'Numaranız 05 ile başlamalıdır'

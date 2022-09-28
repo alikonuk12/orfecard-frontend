@@ -27,9 +27,9 @@ const UserCard = ({ data, onClickCard, onClickEdit, handleDeleteCard }) => {
                 </div>
             </div>
             <div className={styles.bottomContainer} onClick={() => onClickCard(data?.serialNumber)}>
-                {data?.image && <img className={styles.image} src={data.image} alt='card_image' />}
+                <img className={styles.image} src={data?.image || '/images/icons/person_icon.svg'} alt='card_image' />
                 <div className={styles.infos}>
-                    <div className={styles.fullname}>{data?.name + ' ' + data?.lastname}</div>
+                    <div className={styles.fullname}>{(data?.name || '') + ' ' + (data?.lastname || '')}</div>
                     <div className={styles.subContainer}>
                         <div className={styles.contact}>Kart Seri No: {data?.serialNumber}</div>
                         <div className={styles.contact}>{data?.email}</div>

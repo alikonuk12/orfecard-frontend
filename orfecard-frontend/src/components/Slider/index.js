@@ -24,7 +24,7 @@ const Slider = ({ count }) => {
 
     return (
         <div className={styles.container}>
-            <div>
+            <div style={{ width: '100%' }}>
                 {Array
                     .from({ length: count })
                     .map((_, index) =>

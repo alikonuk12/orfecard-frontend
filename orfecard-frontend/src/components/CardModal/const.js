@@ -1,7 +1,12 @@
 export const FIELDS = {
     location: 'location.svg',
     tax_information: 'tax_information.svg',
-    bank_information: 'bank_information.svg'
+    bank_information: 'bank_information.svg',
+    e_catalog_1: 'e_catalog.svg',
+    e_catalog_2: 'e_catalog.svg',
+    e_catalog_3: 'e_catalog.svg',
+    e_catalog_4: 'e_catalog.svg',
+    e_catalog_5: 'e_catalog.svg'
 }
 
 export const SOCIAL_MEDIA_FIELDS = {

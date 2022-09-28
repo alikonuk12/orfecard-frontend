@@ -56,26 +56,21 @@ const UpdateCardModal = ({ serialNumber, onClose }) => {
         enableReinitialize: true,
         onSubmit: handleSubmit,
         validationSchema: yup.object({
-            name: yup
-                .string()
-                .required(VALIDATION_TEXT.REQUIRED),
-            lastname: yup
-                .string()
-                .required(VALIDATION_TEXT.REQUIRED),
+            name: yup.string(),
+            lastname: yup.string(),
             phoneNumber: yup
                 .string()
-                .required(VALIDATION_TEXT.REQUIRED)
                 .length(11, VALIDATION_TEXT.LENGTH)
                 .test('Check Prefix', (value, { createError, path }) => {
-                    if (!value.startsWith('05')) {
-                        return createError({ path, message: VALIDATION_TEXT.PHONE_NUMBER });
+                    if (value) {
+                        if (!value.startsWith('05')) return createError({ path, message: VALIDATION_TEXT.PHONE_NUMBER });
+                        return true;
                     }
                     return true;
                 }),
             email: yup
                 .string()
                 .email(VALIDATION_TEXT.EMAIL)
-                .required(VALIDATION_TEXT.REQUIRED)
         })
     });
 
@@ -83,9 +78,9 @@ const UpdateCardModal = ({ serialNumber, onClose }) => {
         formik.resetForm();
         onClose();
     }
-    
+
     const handleClickImage = () => inputRef.current.click();
-    
+
     const handleChangeImage = ({ target }) => {
         const file = target.files[0];
         const reader = new FileReader();
@@ -99,15 +94,6 @@ const UpdateCardModal = ({ serialNumber, onClose }) => {
         const data = await getcarddetail({ serialNumber });
         delete data['createdAt'];
         setDetail(data);
-    }
-
-    const handleChangeEcatalog = ({ target }) => {
-        const file = target.files[0];
-        const reader = new FileReader();
-        reader.onload = () => {
-            formik.setFieldValue('e_catalog', reader.result);
-        }
-        reader.readAsDataURL(file);
     }
 
     useEffect(() => {
@@ -130,7 +116,7 @@ const UpdateCardModal = ({ serialNumber, onClose }) => {
                     </div>
                     <div className={styles.imageContainer}>
                         <div onClick={handleClickImage} style={{
-                            backgroundImage: `url(${formik.values.image})`,
+                            backgroundImage: `url(${formik.values.image || '/images/icons/person_icon.svg'})`,
                             backgroundSize: '150px',
                             width: '150px',
                             height: '150px',
@@ -147,12 +133,12 @@ const UpdateCardModal = ({ serialNumber, onClose }) => {
                                 <Input
                                     id={el}
                                     name={el}
-                                    type={el === 'e_catalog' ? 'file' : 'text'}
-                                    value={el === 'e_catalog' ? '' : formik.values[el]}
+                                    type='text'
+                                    value={formik.values[el]}
                                     rows={el === 'tax_information' ? 3 : el === 'bank_information' && 4}
                                     isError={formik.touched[el] && formik.errors[el]}
                                     errorText={formik.errors[el]}
-                                    onChange={el === 'e_catalog' ? handleChangeEcatalog : formik.handleChange}
+                                    onChange={formik.handleChange}
                                 />
                             </div>
                         ))}
@@ -166,7 +152,6 @@ const UpdateCardModal = ({ serialNumber, onClose }) => {
                                     isError={formik.touched[el] && formik.errors[el]}
                                     errorText={formik.errors[el]}
                                     onChange={formik.handleChange}
-                                   
                                 />
                             </div>
                         ))}

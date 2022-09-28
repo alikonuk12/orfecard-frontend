@@ -38,7 +38,7 @@ const CardModal = ({ serialNumber, onClose }) => {
                         </div>
                         <div className={styles.imageContainer}>
                             <img
-                                src={detail?.image}
+                                src={detail?.image || '/images/icons/person_icon.svg'}
                                 alt='detail_image'
                                 className={styles.image}
                             />
@@ -66,7 +66,7 @@ const CardModal = ({ serialNumber, onClose }) => {
                         <div className={styles.rowContainer}>
                             <div className={styles.row}>
                                 <img className={styles.icon} src='/images/icons/profile_icons/landline_number.svg' alt='landline_number' />
-                                <div className={styles.text}>{detail?.landlineNumber + ' - ' + detail?.extNumber}</div>
+                                <div className={styles.text}>{(detail?.landlineNumber && detail?.extNumber) && detail?.landlineNumber + ' - ' + detail?.extNumber}</div>
                             </div>
                         </div>
                         <div className={styles.rowContainer}>
@@ -80,13 +80,13 @@ const CardModal = ({ serialNumber, onClose }) => {
                                 {Object.keys(FIELDS).map(el => (
                                     <>
                                         {
-                                            el === 'location' ?
-                                                <a href={detail[el]} target='_blank' rel="noreferrer">
+                                            (el === 'tax_information' || el === 'bank_information') ?
+                                                detail[el] && <div onClick={() => handleClickInfoModal(detail[el])}>
                                                     <img className={mode === 'DESKTOP' ? styles.desktopIcon : styles.mobileIcon} src={`/images/icons/card_info_icons/${FIELDS[el]}`} alt='icons' />
-                                                </a> :
-                                                <div onClick={() => handleClickInfoModal(detail[el])}>
+                                                </div> :
+                                                detail[el] && <a href={detail[el]} target='_blank' rel="noreferrer">
                                                     <img className={mode === 'DESKTOP' ? styles.desktopIcon : styles.mobileIcon} src={`/images/icons/card_info_icons/${FIELDS[el]}`} alt='icons' />
-                                                </div>
+                                                </a>
                                         }
                                     </>
                                 ))}
