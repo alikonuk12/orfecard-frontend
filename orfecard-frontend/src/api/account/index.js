@@ -14,6 +14,7 @@ import signup from './signup';
 import getuser from './getuser';
 import updateuser from './updateuser';
 import sendcontactmail from './sendcontactmail';
+import giveorder from './giveorder';
 
 export { 
     login,
@@ -31,5 +32,6 @@ export {
     signup,
     getuser,
     updateuser,
-    sendcontactmail
+    sendcontactmail,
+    giveorder
 };

@@ -17,6 +17,7 @@ import CookiePolicy from './CookiePolicy';
 import About from './About';
 import TeslimatVeIadeKosullari from './TeslimatVeIadeKosullari';
 import MesafeliSatisSozlesmesi from './MesafeliSatisSozlesmesi';
+import Payment from './Payment';
 
 export {
     Homepage,
@@ -37,5 +38,6 @@ export {
     CookiePolicy,
     About,
     TeslimatVeIadeKosullari,
-    MesafeliSatisSozlesmesi
+    MesafeliSatisSozlesmesi,
+    Payment
 };

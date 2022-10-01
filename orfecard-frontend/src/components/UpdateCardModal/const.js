@@ -48,4 +48,13 @@ export const VALIDATION_TEXT = {
     PHONE_NUMBER: 'Numaranız 05 ile başlamalıdır'
 }
 
+export const PLACEHOLDERS = {
+    location: 'Haritalar linki giriniz',
+    e_catalog_1: 'Drive linki giriniz',
+    e_catalog_2: 'Drive linki giriniz',
+    e_catalog_3: 'Drive linki giriniz',
+    e_catalog_4: 'Drive linki giriniz',
+    e_catalog_5: 'Drive linki giriniz'
+}
+
 export const BUTTON_TEXT = 'Güncelle';

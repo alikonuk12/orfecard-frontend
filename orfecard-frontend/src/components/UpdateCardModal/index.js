@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { getcarddetail, updatecarddetail } from '../../api/account';
-import { BUTTON_TEXT, E_COMMERCE_FIELDS, FIELDS, SOCIAL_MEDIA_FIELDS, VALIDATION_TEXT } from './const';
+import { BUTTON_TEXT, E_COMMERCE_FIELDS, FIELDS, PLACEHOLDERS, SOCIAL_MEDIA_FIELDS, VALIDATION_TEXT } from './const';
 import styles from './index.module.scss';
 import Input from "../Input";
 
@@ -30,7 +30,11 @@ const UpdateCardModal = ({ serialNumber, onClose }) => {
             location: detail?.location,
             tax_information: detail?.tax_information,
             bank_information: detail?.bank_information,
-            e_catalog: detail?.e_catalog,
+            e_catalog_1: detail?.e_catalog_1,
+            e_catalog_2: detail?.e_catalog_2,
+            e_catalog_3: detail?.e_catalog_3,
+            e_catalog_4: detail?.e_catalog_4,
+            e_catalog_5: detail?.e_catalog_5,
             companyName: detail?.companyName,
             image: detail?.image,
             facebook: detail?.facebook,
@@ -135,6 +139,7 @@ const UpdateCardModal = ({ serialNumber, onClose }) => {
                                     name={el}
                                     type='text'
                                     value={formik.values[el]}
+                                    placeholder={PLACEHOLDERS[el]}
                                     rows={el === 'tax_information' ? 3 : el === 'bank_information' && 4}
                                     isError={formik.touched[el] && formik.errors[el]}
                                     errorText={formik.errors[el]}

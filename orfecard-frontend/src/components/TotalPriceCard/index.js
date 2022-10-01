@@ -5,7 +5,7 @@ import { TEXT } from './const';
 import { isLoggedIn } from '../../util';
 import styles from './index.module.scss';
 
-const TotalPriceCard = ({ total }) => {
+const TotalPriceCard = ({ cart, total }) => {
     const { mode } = useSelector(state => state.view);
     const navigate = useNavigate();
 
@@ -14,12 +14,15 @@ const TotalPriceCard = ({ total }) => {
     const [agreement, setAgreement] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
 
-    const handleClickButton = () => {
+    const handleClickButton = async () => {
         if (!agreement) return setErrorMessage('Metinlerin onaylanması gereklidir');
         if (!isLoggedIn()) {
             navigate('/login', { replace: true });
             setErrorMessage('');
+            return;
         }
+
+        navigate('/odeme-yap', { state: { cart, total }});
     }
 
     const handleChangeAgreement = () => setAgreement(!agreement);

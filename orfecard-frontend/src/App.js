@@ -28,6 +28,7 @@ const CookiePolicy = lazy(() => new Promise(resolve => setTimeout(() => resolve(
 const About = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/About')), 1500)));
 const TeslimatVeIadeKosullari = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/TeslimatVeIadeKosullari')), 1500)));
 const MesafeliSatisSozlesmesi = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/MesafeliSatisSozlesmesi')), 1500)));
+const Payment = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/Payment')), 1500)));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -81,6 +82,7 @@ const App = () => {
         <Route path='/hakkimizda' element={<ConditionalRouter component={About} />} />
         <Route path='/teslimat-ve-iade-kosullari' element={<ConditionalRouter component={TeslimatVeIadeKosullari} />} />
         <Route path='/mesafeli-satis-sozlesmesi' element={<ConditionalRouter component={MesafeliSatisSozlesmesi} />} />
+        <Route path='/odeme-yap' element={<ConditionalRouter component={Payment} />} />
       </Routes>
       <Footer />
       <CookieConsent buttonText='OKUDUM ONAYLIYORUM' >

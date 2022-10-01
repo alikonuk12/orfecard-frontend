@@ -19,6 +19,13 @@ const CardModal = ({ serialNumber, onClose }) => {
     const handleClickInfoModal = (info) => setInfo(info);
     const handleCloseInfoModal = () => setInfo('');
 
+    const handleClickIcon = (url) => {
+        if (url.startsWith('http://') || url.startsWith('https://')) {
+            return window.location.replace(url);
+        }
+        window.location.replace('https://' + url);
+    }
+
     useEffect(() => {
         serialNumber && handleGetDetail();
     }, [serialNumber]);
@@ -66,7 +73,7 @@ const CardModal = ({ serialNumber, onClose }) => {
                         <div className={styles.rowContainer}>
                             <div className={styles.row}>
                                 <img className={styles.icon} src='/images/icons/profile_icons/landline_number.svg' alt='landline_number' />
-                                <div className={styles.text}>{(detail?.landlineNumber && detail?.extNumber) && detail?.landlineNumber + ' - ' + detail?.extNumber}</div>
+                                {detail?.landlineNumber && <div className={styles.text}>{detail?.landlineNumber + (detail?.extNumber ? ' - ' + detail?.extNumber : '')}</div>}
                             </div>
                         </div>
                         <div className={styles.rowContainer}>
@@ -84,9 +91,9 @@ const CardModal = ({ serialNumber, onClose }) => {
                                                 detail[el] && <div onClick={() => handleClickInfoModal(detail[el])}>
                                                     <img className={mode === 'DESKTOP' ? styles.desktopIcon : styles.mobileIcon} src={`/images/icons/card_info_icons/${FIELDS[el]}`} alt='icons' />
                                                 </div> :
-                                                detail[el] && <a href={detail[el]} target='_blank' rel="noreferrer">
+                                                detail[el] && <div onClick={() => handleClickIcon(detail[el])} target='_blank' rel="noreferrer">
                                                     <img className={mode === 'DESKTOP' ? styles.desktopIcon : styles.mobileIcon} src={`/images/icons/card_info_icons/${FIELDS[el]}`} alt='icons' />
-                                                </a>
+                                                </div>
                                         }
                                     </>
                                 ))}

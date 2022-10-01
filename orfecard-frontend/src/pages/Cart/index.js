@@ -80,7 +80,7 @@ const Cart = () => {
                     </div>
                 }
             </div>
-            <TotalPriceCard total={total} />
+            <TotalPriceCard cart={cart} total={total} />
         </div>
     );
 }
