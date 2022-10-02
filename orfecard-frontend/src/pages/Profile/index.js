@@ -67,7 +67,7 @@ const Profile = () => {
                         <div className={styles.rowContainer}>
                             <div className={styles.row}>
                                 <img className={styles.icon} src='/images/icons/profile_icons/landline_number.svg' alt='landline_number' />
-                                <div className={styles.text}>{(profile?.landlineNumber && profile?.extNumber) && profile?.landlineNumber + ' - ' + profile?.extNumber}</div>
+                                <div className={styles.text}>{profile?.landlineNumber + (profile?.extNumber ? ' - ' + profile?.extNumber : '')}</div>
                             </div>
                         </div>
                         <div className={styles.rowContainer}>

@@ -65,8 +65,7 @@ const Signup = () => {
                 .required(EMAIL_VALIDATION_TEXT.REQUIRED),
             phoneNumber: yup
                 .string()
-                .required(PHONE_NUMBER_VALIDATION_TEXT.REQUIRED)
-                .length(11, PHONE_NUMBER_VALIDATION_TEXT.LENGTH),
+                .required(PHONE_NUMBER_VALIDATION_TEXT.REQUIRED),
             address: yup
                 .string()
                 .required(ADDRESS_VALIDATION_TEXT.REQUIRED),
