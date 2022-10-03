@@ -50,8 +50,7 @@ const Settings = () => {
         validationSchema: yup.object({
             phoneNumber: yup
                 .string()
-                .required(PHONE_NUMBER_VALIDATION_TEXT.REQUIRED)
-                .length(11, PHONE_NUMBER_VALIDATION_TEXT.LENGTH),
+                .required(PHONE_NUMBER_VALIDATION_TEXT.REQUIRED),
             website: yup.string(),
             address: yup
                 .string()

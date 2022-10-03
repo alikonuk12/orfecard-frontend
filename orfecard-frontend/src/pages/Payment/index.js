@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 import Cards from 'react-credit-cards';
 import 'react-credit-cards/es/styles-compiled.css';
+import { Base64 } from "js-base64";
 import { Input } from '../../components';
 import styles from './index.module.scss';
 import {
@@ -37,7 +38,21 @@ const Payment = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await giveorder({ cart, total, infos: { ...formik.values, ip } });
+        const htmlContent = await giveorder({ cart, total, infos: { ...formik.values, ip } });
+        const html = Base64.atob(htmlContent);
+        let iframe = document.createElement("iframe");
+        iframe.srcdoc = html;
+        iframe.id = "iframe";
+        iframe.style.position = "absolute";
+        iframe.style.top = "150px";
+        iframe.style.left = "30%";
+        iframe.style.zIndex = "999";
+        iframe.style.height = "420px";
+        iframe.style.width = "520px";
+        iframe.style.backgroundColor = "white";
+        iframe.style.border = "none";
+        document.body.prepend(iframe);
+        document.body.style.overflow = "hidden";
     }
 
     const getData = async () => {

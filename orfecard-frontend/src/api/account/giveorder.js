@@ -12,8 +12,9 @@ const giveorder = async (body) => {
         };
 
         const { status, data } = (await axios(config))?.data;
-        
-        return { status, data };
+
+        if (status === 'success') return data;
+        return;
     } catch (e) {
         console.log(e);
     }

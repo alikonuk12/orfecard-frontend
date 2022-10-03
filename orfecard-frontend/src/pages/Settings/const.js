@@ -23,8 +23,7 @@ export const EMAIL_VALIDATION_TEXT = {
 };
 
 export const PHONE_NUMBER_VALIDATION_TEXT = {
-    REQUIRED: 'Telefon numarası alanı gereklidir',
-    LENGTH: 'Telefon numarası 11 hane olmalıdır'
+    REQUIRED: 'Telefon numarası alanı gereklidir'
 };
 
 export const ADDRESS_VALIDATION_TEXT = {
