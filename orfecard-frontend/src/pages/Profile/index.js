@@ -4,7 +4,12 @@ import { useParams } from 'react-router-dom';
 import { saveAs } from 'file-saver';
 import { getprofile, addtocontact } from '../../api/account';
 import { InfoModal } from '../../components';
-import { E_COMMERCE_FIELDS, FIELDS, SOCIAL_MEDIA_FIELDS } from './const';
+import {
+    E_COMMERCE_FIELDS,
+    FIELDS,
+    SOCIAL_MEDIA_FIELDS,
+    ADD_TO_CONTACT_BUTTON_TEXT
+} from './const';
 import styles from './index.module.scss';
 
 const Profile = () => {
@@ -19,7 +24,7 @@ const Profile = () => {
     }
 
     const handleAddToContact = async () => {
-        const response = await addtocontact({profileId, link: window.location.href});
+        const response = await addtocontact({ profileId, link: window.location.href });
         const data = new Blob([response], { type: 'text/x-vcard' });
         saveAs(data, "contact.vcf");
     }
@@ -46,38 +51,38 @@ const Profile = () => {
                         </div>
                         <div className={styles.companyName}>{profile?.companyName}</div>
                         <div className={styles.fullname}>{(profile?.name || '') + ' ' + (profile?.lastname || '')}</div>
-                        <div className={styles.rowContainer}>
+                        {profile?.address && <div className={styles.rowContainer}>
                             <div className={styles.row}>
                                 <img className={styles.icon} src='/images/icons/profile_icons/location.svg' alt='location' />
                                 <div className={styles.text}>{profile?.address}</div>
                             </div>
-                        </div>
-                        <div className={styles.rowContainer}>
+                        </div>}
+                        {profile?.website && <div className={styles.rowContainer}>
                             <div className={styles.row}>
                                 <img className={styles.icon} src='/images/icons/profile_icons/website.svg' alt='website' />
                                 <div className={styles.text}>{profile?.website}</div>
                             </div>
-                        </div>
-                        <div className={styles.rowContainer}>
+                        </div>}
+                        {profile?.phoneNumber && <div className={styles.rowContainer}>
                             <div className={styles.row}>
                                 <img className={styles.icon} src='/images/icons/profile_icons/phone_number.svg' alt='phone_number' />
                                 <div className={styles.text}>{profile?.phoneNumber}</div>
                             </div>
-                        </div>
-                        <div className={styles.rowContainer}>
+                        </div>}
+                        {profile?.landlineNumber && <div className={styles.rowContainer}>
                             <div className={styles.row}>
                                 <img className={styles.icon} src='/images/icons/profile_icons/landline_number.svg' alt='landline_number' />
                                 <div className={styles.text}>{profile?.landlineNumber + (profile?.extNumber ? ' - ' + profile?.extNumber : '')}</div>
                             </div>
-                        </div>
-                        <div className={styles.rowContainer}>
+                        </div>}
+                        {profile?.email && <div className={styles.rowContainer}>
                             <div className={styles.row}>
                                 <img className={styles.icon} src='/images/icons/profile_icons/email.svg' alt='email' />
                                 <div className={styles.text}>{profile?.email}</div>
                             </div>
-                        </div>
+                        </div>}
                         <div onClick={handleAddToContact} className={styles.addToContactContainer}>
-                            <div className={styles.addToContact}>REHBERE EKLE</div>
+                            <div className={styles.addToContact}>{ADD_TO_CONTACT_BUTTON_TEXT}</div>
                         </div>
                         <div>
                             <div className={styles.iconContainer}>

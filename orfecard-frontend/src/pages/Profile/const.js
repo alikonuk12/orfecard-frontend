@@ -33,3 +33,5 @@ export const E_COMMERCE_FIELDS = {
     getir: 'getir.svg',
     etsTur: 'etstur.svg'
 }
+
+export const ADD_TO_CONTACT_BUTTON_TEXT = 'REHBERE EKLE';
