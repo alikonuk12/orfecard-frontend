@@ -62,16 +62,7 @@ const UpdateCardModal = ({ serialNumber, onClose }) => {
         validationSchema: yup.object({
             name: yup.string(),
             lastname: yup.string(),
-            phoneNumber: yup
-                .string()
-                .length(11, VALIDATION_TEXT.LENGTH)
-                .test('Check Prefix', (value, { createError, path }) => {
-                    if (value) {
-                        if (!value.startsWith('05')) return createError({ path, message: VALIDATION_TEXT.PHONE_NUMBER });
-                        return true;
-                    }
-                    return true;
-                }),
+            phoneNumber: yup.string(),
             email: yup
                 .string()
                 .email(VALIDATION_TEXT.EMAIL)

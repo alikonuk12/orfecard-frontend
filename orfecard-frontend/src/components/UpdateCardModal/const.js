@@ -43,9 +43,7 @@ export const E_COMMERCE_FIELDS = {
 }
 
 export const VALIDATION_TEXT = {
-    LENGTH: 'Yeterli uzunlukta değildir',
-    EMAIL: 'E-mail formatında olmalıdır',
-    PHONE_NUMBER: 'Numaranız 05 ile başlamalıdır'
+    EMAIL: 'E-mail formatında olmalıdır'
 }
 
 export const PLACEHOLDERS = {
