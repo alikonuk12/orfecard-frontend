@@ -7,17 +7,17 @@
     gap: 50px;
     background-color: #000000;
 
-    .paymentContainer {
+    .leftSide {
         display: flex;
+        flex-direction: column;
         padding: 50px 75px;
+        gap: 10px;
 
         border: {
             radius: 30px;
             style: solid;
             color: #D7B46A;
         }
-
-        gap: 50px;
 
         .paymentHeader {
             color: #FFFFFF;
@@ -32,102 +32,206 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+        }
+    }
 
-            .agreementContainer {
-                display: flex;
-                flex-direction: row;
+    .rightSide {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px 30px;
+        gap: 10px;
 
-                .agreementText {
-                    color: #FFFFFF;
+        border: {
+            radius: 30px;
+            style: solid;
+            color: #D7B46A;
+        }
 
-                    font: {
-                        size: 14px;
-                        weight: 400;
-                    }
-                }
-            }
+        .expireDate {
+            display: flex;
+            gap: 25px;
+        }
 
-            .errorMessage {
-                color: red;
+        .inputHeader {
+            color: #FFFFFF;
+            margin-left: 5px;
 
-                font: {
-                    size: 14px;
-                    weight: 400;
-                }
-            }
-
-            .button {
-                cursor: pointer;
-                margin-top: 20px;
-                padding: 8px 5px;
+            font: {
+                size: 16px;
+                weight: 600;
             }
         }
 
-        .paymentSubcontainer {
+        .input {
+            width: 250px;
+            height: 20px;
+            padding: 4px 15px;
+            border: {
+                radius: 10px;
+                width: 0px;
+            }
+        }
+
+        .inputError {
+            color: red;
+
+            font: {
+                size: 12px;
+                weight: 400;
+            }
+        }
+
+        .buttonContainer {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: flex-end;
+            width: 100%;
+            background-color: #000000;
 
-            .expireDate {
+            .button {
+                cursor: pointer;
                 display: flex;
-                gap: 20px;
-            }
-
-            .inputHeader {
+                justify-content: center;
+                align-items: center;
+                width: 300px;
+                height: 40px;
                 color: #FFFFFF;
+                background-color: #D7B46A;
 
                 font: {
+                    family: 'Kanit', sans-serif;
                     size: 16px;
-                    weight: 600;
-                }
-            }
-
-            .input {
-                width: 270px;
-                height: 20px;
-                border-radius: 10px;
-                padding: 4px 15px;
-            }
-
-            .inputError {
-                color: red;
-
-                font: {
-                    size: 12px;
                     weight: 400;
                 }
+
+                border: {
+                    width: 1px;
+                    radius: 5px;
+                }
+
+                &:hover {
+                    box-shadow: 4px 4px 8px -3px rgba(255, 255, 255, 0.75);
+                }
             }
+        }
+    }
+}
 
-            .buttonContainer {
+.mobileContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 25px 0;
+    gap: 25px;
+    background-color: #000000;
+
+    .leftSide {
+        display: flex;
+        flex-direction: column;
+        padding: 50px 60px;
+        gap: 10px;
+
+        border: {
+            radius: 30px;
+            style: solid;
+            color: #D7B46A;
+        }
+
+        .paymentHeader {
+            color: #FFFFFF;
+
+            font: {
+                size: 36px;
+                weight: 300;
+            }
+        }
+
+        .formContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+
+    .rightSide {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px 20px;
+        gap: 10px;
+
+        border: {
+            radius: 30px;
+            style: solid;
+            color: #D7B46A;
+        }
+
+        .expireDate {
+            display: flex;
+            gap: 25px;
+        }
+
+        .inputHeader {
+            color: #FFFFFF;
+            margin-left: 5px;
+
+            font: {
+                size: 16px;
+                weight: 600;
+            }
+        }
+
+        .input {
+            width: 250px;
+            height: 20px;
+            padding: 4px 15px;
+            border: {
+                radius: 10px;
+                width: 0px;
+            }
+        }
+
+        .inputError {
+            color: red;
+
+            font: {
+                size: 12px;
+                weight: 400;
+            }
+        }
+
+        .buttonContainer {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+            background-color: #000000;
+            border-width: 0px;
+
+            .button {
+                cursor: pointer;
                 display: flex;
-                justify-content: flex-end;
-                width: 100%;
-                background-color: #000000;
+                justify-content: center;
+                align-items: center;
+                width: 300px;
+                height: 40px;
+                color: #FFFFFF;
+                background-color: #D7B46A;
 
-                .button {
-                    cursor: pointer;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    width: 300px;
-                    height: 40px;
-                    color: #FFFFFF;
-                    background-color: #D7B46A;
+                font: {
+                    family: 'Kanit', sans-serif;
+                    size: 16px;
+                    weight: 400;
+                }
 
-                    font: {
-                        family: 'Kanit', sans-serif;
-                        size: 16px;
-                        weight: 400;
-                    }
+                border: {
+                    width: 1px;
+                    radius: 5px;
+                }
 
-                    border: {
-                        width: 1px;
-                        radius: 5px;
-                    }
-
-                    &:hover {
-                        box-shadow: 4px 4px 8px -3px rgba(255, 255, 255, 0.75);
-                    }
+                &:hover {
+                    box-shadow: 4px 4px 8px -3px rgba(255, 255, 255, 0.75);
                 }
             }
         }
