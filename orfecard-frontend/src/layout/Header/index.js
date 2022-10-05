@@ -51,7 +51,7 @@ const Header = () => {
         },
         {
             to: email ? '/' : '/login',
-            onClick: email && handleLogout,
+            onClick: email ? handleLogout : handleClickMenuItem,
             text: email ? 'Çıkış Yap' : 'Giriş Yap'
         },
         {
