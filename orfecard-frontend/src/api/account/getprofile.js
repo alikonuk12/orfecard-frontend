@@ -6,7 +6,7 @@ const getprofile = async (profileId) => {
         const config = {
             baseURL: BASE_URL,
             withCredentials: true,
-            url: `/api/account/${profileId}`,
+            url: `/api/account/profile/${profileId}`,
             method: 'GET'
         };
 
