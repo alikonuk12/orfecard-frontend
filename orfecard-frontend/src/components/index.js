@@ -12,6 +12,7 @@ import TotalPriceCard from './TotalPriceCard';
 import ApproveModal from './ApproveModal';
 import InfoModal from './InfoModal';
 import PDFViewer from './PDFViewer';
+import OrderHistoryList from './OrderHistoryList';
 
 export {
     BurgerMenu,
@@ -27,5 +28,6 @@ export {
     TotalPriceCard,
     ApproveModal,
     InfoModal,
-    PDFViewer
+    PDFViewer,
+    OrderHistoryList
 };

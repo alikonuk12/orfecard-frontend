@@ -30,10 +30,9 @@ export const TCKN_VALIDATION_TEXT = {
     LENGTH: 'TCKN alanı 11 hane olmalıdır'
 };
 
-
 export const COMPANY_TITLE_VALIDATION_TEXT = {
     REQUIRED: 'Firma Ünvanı / Ad Soyad alanı gereklidir'
-}
+};
 
 export const PASSWORD_VALIDATION_TEXT = {
     REQUIRED: 'Şifre alanı gereklidir',

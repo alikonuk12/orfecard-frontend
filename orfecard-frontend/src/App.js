@@ -29,6 +29,7 @@ const About = lazy(() => new Promise(resolve => setTimeout(() => resolve(import(
 const TeslimatVeIadeKosullari = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/TeslimatVeIadeKosullari')), 1500)));
 const MesafeliSatisSozlesmesi = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/MesafeliSatisSozlesmesi')), 1500)));
 const Payment = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/Payment')), 1500)));
+const OrderHistory = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/OrderHistory')), 1500)));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -67,6 +68,7 @@ const App = () => {
         <Route path='/userpanel'>
           <Route index element={<ConditionalRouter component={UserPanel} protectedRouter />} />
           <Route path='settings' element={<ConditionalRouter component={Settings} protectedRouter />} />
+          <Route path='orderhistory' element={<ConditionalRouter component={OrderHistory} protectedRouter />} />
         </Route>
         <Route path='/satin-al' element={<ConditionalRouter component={Purchase} />} />
         <Route path='/sepetim' element={<ConditionalRouter component={Cart} />} />

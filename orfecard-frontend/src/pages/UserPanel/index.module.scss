@@ -17,10 +17,15 @@
             }
         }
 
-        .settings {
-            cursor: pointer;
-            width: 20px;
-            height: 20px;
+        .iconContainer {
+            display: flex;
+            gap: 15px;
+
+            .icon {
+                cursor: pointer;
+                width: 20px;
+                height: 20px;
+            }
         }
     }
 

@@ -15,6 +15,7 @@ import getuser from './getuser';
 import updateuser from './updateuser';
 import sendcontactmail from './sendcontactmail';
 import giveorder from './giveorder';
+import getorderhistory from './getorderhistory';
 
 export { 
     login,
@@ -33,5 +34,6 @@ export {
     getuser,
     updateuser,
     sendcontactmail,
-    giveorder
+    giveorder,
+    getorderhistory
 };

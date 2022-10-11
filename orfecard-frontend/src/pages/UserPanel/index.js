@@ -47,12 +47,20 @@ const UserPanel = () => {
             <div className={styles.container}>
                 <div className={styles.topContainer}>
                     <div className={styles.greeting}>Hoşgeldiniz,</div>
-                    <img
-                        className={styles.settings}
-                        src='/images/icons/setings_icon.svg'
-                        alt='settings'
-                        onClick={() => navigate('settings', { replace: true })}
-                    />
+                    <div className={styles.iconContainer}>
+                        <img
+                            className={styles.icon}
+                            src='/images/icons/order_history_icon.svg'
+                            alt='orderhistory'
+                            onClick={() => navigate('orderhistory', { replace: true })}
+                        />
+                        <img
+                            className={styles.icon}
+                            src='/images/icons/setings_icon.svg'
+                            alt='settings'
+                            onClick={() => navigate('settings', { replace: true })}
+                        />
+                    </div>
                 </div>
                 <div className={styles.line} />
                 <div className={styles.subContainer}>
