@@ -135,4 +135,16 @@ $directions: (
             }
         }
     }
+
+    .noOrderHistory {
+        font: {
+            size: 32px;
+            weight: 400;
+        }
+        
+        width: 100%;
+        text-align: center;
+        color: #D7B46A;
+        padding: 50px 0px;
+    }
 }

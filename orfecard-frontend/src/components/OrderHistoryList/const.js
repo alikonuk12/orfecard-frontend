@@ -1,0 +1,1 @@
+export const NO_ORDER_HISTORY = 'SİPARİŞ GEÇMİŞİNİZ BULUNMAMAKTADIR'
