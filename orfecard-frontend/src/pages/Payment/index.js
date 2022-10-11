@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useFormik } from 'formik';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -6,7 +6,8 @@ import * as yup from 'yup';
 import axios from 'axios';
 import Cards from 'react-credit-cards';
 import 'react-credit-cards/es/styles-compiled.css';
-import { Base64 } from "js-base64";
+import { Base64 } from 'js-base64';
+import { NotificationManager } from 'react-notifications';
 import { Input } from '../../components';
 import styles from './index.module.scss';
 import {
@@ -38,25 +39,39 @@ const Payment = () => {
     const [ip, setIP] = useState('');
     const [cart, setCart] = useState('');
     const [total, setTotal] = useState('');
+    const [loading, setLoading] = useState('');
+
+    const monthRef = useRef();
+    const yearRef = useRef();
+    const cvcRef = useRef();
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        const cardNumber = formik.values.cardNumber.replace(/\s+/g, '');
-        const htmlContent = await giveorder({ cart, total, infos: { ...formik.values, cardNumber, ip } });
-        const html = Base64.atob(htmlContent);
-        let iframe = document.createElement("iframe");
-        iframe.srcdoc = html;
-        iframe.id = "iframe";
-        iframe.style.position = "absolute";
-        iframe.style.top = "150px";
-        iframe.style.left = "30%";
-        iframe.style.zIndex = "999";
-        iframe.style.height = "420px";
-        iframe.style.width = "520px";
-        iframe.style.backgroundColor = "white";
-        iframe.style.border = "none";
-        document.body.prepend(iframe);
-        document.body.style.overflow = "hidden";
+        try {
+            e.preventDefault();
+            setLoading(true);
+            const cardNumber = formik.values.cardNumber.replace(/\s+/g, '');
+            const { status, data } = await giveorder({ cart, total, infos: { ...formik.values, cardNumber, ip } });
+            if (status !== 'success') return NotificationManager.error(data, 'Hata!');
+
+            const html = Base64.atob(data);
+            let iframe = document.createElement('iframe');
+            iframe.srcdoc = html;
+            iframe.id = 'iframe';
+            iframe.style.position = 'absolute';
+            iframe.style.top = '150px';
+            iframe.style.left = '30%';
+            iframe.style.zIndex = '999';
+            iframe.style.height = '420px';
+            iframe.style.width = '520px';
+            iframe.style.backgroundColor = 'white';
+            iframe.style.border = 'none';
+            document.body.prepend(iframe);
+            document.body.style.overflow = 'hidden';
+        } catch (error) {
+            NotificationManager.error('Bir şeyler ters gitti, lütfen tekrar deneyin', 'Hata!');
+        } finally {
+            setLoading(false);
+        }
     }
 
     const getData = async () => {
@@ -140,6 +155,11 @@ const Payment = () => {
 
     useEffect(() => {
         getData();
+
+        return () => {
+            const [iframe] = document.body.getElementsByTagName('iframe');
+            iframe?.remove();
+        }
     }, []);
 
     return (
@@ -148,9 +168,9 @@ const Payment = () => {
                 <div className={styles.paymentHeader}>{PAYMENT_PANEL_HEADER}</div>
                 <form className={styles.formContainer} onSubmit={formik.handleSubmit}>
                     <Input
-                        id="name"
-                        name="name"
-                        type="text"
+                        id='name'
+                        name='name'
+                        type='text'
                         title={PAYMENT_INPUTS.NAME}
                         value={formik.values.name}
                         isError={formik.touched.name && formik.errors.name}
@@ -158,9 +178,9 @@ const Payment = () => {
                         onChange={formik.handleChange}
                     />
                     <Input
-                        id="surname"
-                        name="surname"
-                        type="text"
+                        id='surname'
+                        name='surname'
+                        type='text'
                         title={PAYMENT_INPUTS.SURNAME}
                         value={formik.values.surname}
                         isError={formik.touched.surname && formik.errors.surname}
@@ -168,9 +188,9 @@ const Payment = () => {
                         onChange={formik.handleChange}
                     />
                     <Input
-                        id="city"
-                        name="city"
-                        type="text"
+                        id='city'
+                        name='city'
+                        type='text'
                         title={PAYMENT_INPUTS.CITY}
                         value={formik.values.city}
                         isError={formik.touched.city && formik.errors.city}
@@ -178,9 +198,9 @@ const Payment = () => {
                         onChange={formik.handleChange}
                     />
                     <Input
-                        id="country"
-                        name="country"
-                        type="text"
+                        id='country'
+                        name='country'
+                        type='text'
                         title={PAYMENT_INPUTS.COUNTRY}
                         value={formik.values.country}
                         isError={formik.touched.country && formik.errors.country}
@@ -188,9 +208,9 @@ const Payment = () => {
                         onChange={formik.handleChange}
                     />
                     <Input
-                        id="billingAddress"
-                        name="billingAddress"
-                        type="text"
+                        id='billingAddress'
+                        name='billingAddress'
+                        type='text'
                         rows={3}
                         title={PAYMENT_INPUTS.BILLING_ADDRESS}
                         value={formik.values.billingAddress}
@@ -199,9 +219,9 @@ const Payment = () => {
                         onChange={formik.handleChange}
                     />
                     <Input
-                        id="taxAdministration"
-                        name="taxAdministration"
-                        type="text"
+                        id='taxAdministration'
+                        name='taxAdministration'
+                        type='text'
                         title={PAYMENT_INPUTS.TAX_ADMINISTRATION}
                         value={formik.values.taxAdministration}
                         isError={formik.touched.taxAdministration && formik.errors.taxAdministration}
@@ -209,9 +229,9 @@ const Payment = () => {
                         onChange={formik.handleChange}
                     />
                     <Input
-                        id="taxNumber"
-                        name="taxNumber"
-                        type="text"
+                        id='taxNumber'
+                        name='taxNumber'
+                        type='text'
                         title={PAYMENT_INPUTS.TAX_NUMBER}
                         value={formik.values.taxNumber}
                         isError={formik.touched.taxNumber && formik.errors.taxNumber}
@@ -219,9 +239,9 @@ const Payment = () => {
                         onChange={formik.handleChange}
                     />
                     <Input
-                        id="zipCode"
-                        name="zipCode"
-                        type="text"
+                        id='zipCode'
+                        name='zipCode'
+                        type='text'
                         title={PAYMENT_INPUTS.ZIPCODE}
                         value={formik.values.zipCode}
                         isError={formik.touched.zipCode && formik.errors.zipCode}
@@ -229,9 +249,9 @@ const Payment = () => {
                         onChange={formik.handleChange}
                     />
                     <Input
-                        id="address"
-                        name="address"
-                        type="text"
+                        id='address'
+                        name='address'
+                        type='text'
                         rows={3}
                         title={PAYMENT_INPUTS.ADDRESS}
                         value={formik.values.address}
@@ -240,9 +260,9 @@ const Payment = () => {
                         onChange={formik.handleChange}
                     />
                     <Input
-                        id="shippingZipCode"
-                        name="shippingZipCode"
-                        type="text"
+                        id='shippingZipCode'
+                        name='shippingZipCode'
+                        type='text'
                         title={PAYMENT_INPUTS.SHIPPING_ZIPCODE}
                         value={formik.values.shippingZipCode}
                         isError={formik.touched.shippingZipCode && formik.errors.shippingZipCode}
@@ -262,9 +282,9 @@ const Payment = () => {
                 <div>
                     <div className={styles.inputHeader}>{PAYMENT_INPUTS.CARDHOLDER_NAME}</div>
                     <input
-                        id="cardHolderName"
-                        name="cardHolderName"
-                        type="text"
+                        id='cardHolderName'
+                        name='cardHolderName'
+                        type='text'
                         className={styles.input}
                         value={formik.values.cardHolderName}
                         onChange={formik.handleChange}
@@ -276,14 +296,15 @@ const Payment = () => {
                 <div>
                     <div className={styles.inputHeader}>{PAYMENT_INPUTS.CARD_NUMBER}</div>
                     <input
-                        id="cardNumber"
-                        name="cardNumber"
-                        type="text"
+                        id='cardNumber'
+                        name='cardNumber'
+                        type='text'
                         className={styles.input}
                         value={formik.values.cardNumber}
-                        onChange={(e) => {
-                            const result = convertToCreditCardFormat(e.target.value);
+                        onChange={({ target }) => {
+                            const result = convertToCreditCardFormat(target.value);
                             formik.setFieldValue('cardNumber', result);
+                            if (target.value.length === 19) monthRef.current.focus();
                         }}
                     />
                     {formik.touched.cardNumber && formik.errors.cardNumber &&
@@ -294,14 +315,18 @@ const Payment = () => {
                     <div>
                         <div className={styles.inputHeader}>{PAYMENT_INPUTS.EXPIRE_MONTH}</div>
                         <input
-                            id="expireMonth"
-                            name="expireMonth"
-                            type="text"
+                            id='expireMonth'
+                            name='expireMonth'
+                            type='text'
                             maxLength={2}
+                            ref={monthRef}
                             style={{ width: '30px' }}
                             className={styles.input}
                             value={formik.values.expireMonth}
-                            onChange={formik.handleChange}
+                            onChange={({ target }) => {
+                                formik.setFieldValue('expireMonth', target.value);
+                                if (target.value.length === 2) yearRef.current.focus();
+                            }}
                         />
                         {formik.touched.expireMonth && formik.errors.expireMonth &&
                             <div className={styles.inputError}>{formik.errors.expireMonth}</div>
@@ -310,14 +335,18 @@ const Payment = () => {
                     <div>
                         <div className={styles.inputHeader}>{PAYMENT_INPUTS.EXPIRE_YEAR}</div>
                         <input
-                            id="expireYear"
-                            name="expireYear"
-                            type="text"
+                            id='expireYear'
+                            name='expireYear'
+                            type='text'
                             maxLength={2}
+                            ref={yearRef}
                             style={{ width: '30px' }}
                             className={styles.input}
                             value={formik.values.expireYear}
-                            onChange={formik.handleChange}
+                            onChange={({ target }) => {
+                                formik.setFieldValue('expireYear', target.value);
+                                if (target.value.length === 2) cvcRef.current.focus();
+                            }}
                         />
                         {formik.touched.expireYear && formik.errors.expireYear &&
                             <div className={styles.inputError}>{formik.errors.expireYear}</div>
@@ -326,10 +355,11 @@ const Payment = () => {
                     <div>
                         <div className={styles.inputHeader}>{PAYMENT_INPUTS.CVC}</div>
                         <input
-                            id="cvc"
-                            name="cvc"
-                            type="text"
+                            id='cvc'
+                            name='cvc'
+                            type='text'
                             maxLength={3}
+                            ref={cvcRef}
                             style={{ width: '30px' }}
                             className={styles.input}
                             value={formik.values.cvc}
@@ -340,7 +370,11 @@ const Payment = () => {
                         }
                     </div>
                 </div>
-                <button onClick={handleSubmit} className={styles.buttonContainer}>
+                <button
+                    disabled={loading}
+                    onClick={handleSubmit}
+                    className={styles.buttonContainer}
+                >
                     <div className={styles.button}>
                         <img
                             src='/images/icons/payment_button.svg'

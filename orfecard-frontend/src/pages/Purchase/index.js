@@ -64,7 +64,7 @@ const Purchase = () => {
             });
             NotificationManager.success('Sepete Eklendi', 'Başarılı');
         } catch (error) {
-            NotificationManager.error('Sepete Eklenme Başarısız', 'Hata!');
+            NotificationManager.error('Bir şeyler ters gitti, lütfen tekrar deneyin', 'Hata!');
         }
     }
 
