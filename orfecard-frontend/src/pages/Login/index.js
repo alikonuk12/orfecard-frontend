@@ -25,8 +25,8 @@ const Login = () => {
         if (status === 'success') {
             localStorage.setItem('email', data.email);
             localStorage.setItem('role', data.role);
-            if (data.role === 'Client') navigate("/userpanel", { replace: true });
-            else if (data.role === 'Admin') navigate("/adminpanel", { replace: true });
+            if (data.role === 'Client') navigate('/userpanel', { replace: true });
+            else if (data.role === 'Admin') navigate('/adminpanel/dashboard', { replace: true });
             else navigate("/", { replace: true });
         } else {
             setErrorMessage(data)

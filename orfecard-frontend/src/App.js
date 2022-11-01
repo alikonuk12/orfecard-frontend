@@ -30,6 +30,7 @@ const TeslimatVeIadeKosullari = lazy(() => new Promise(resolve => setTimeout(() 
 const MesafeliSatisSozlesmesi = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/MesafeliSatisSozlesmesi')), 1500)));
 const Payment = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/Payment')), 1500)));
 const OrderHistory = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/OrderHistory')), 1500)));
+const AdminPanel = lazy(() => new Promise(resolve => setTimeout(() => resolve(import('./pages/AdminPanel')), 1500)));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -85,6 +86,10 @@ const App = () => {
         <Route path='/teslimat-ve-iade-kosullari' element={<ConditionalRouter component={TeslimatVeIadeKosullari} />} />
         <Route path='/mesafeli-satis-sozlesmesi' element={<ConditionalRouter component={MesafeliSatisSozlesmesi} />} />
         <Route path='/odeme-yap' element={<ConditionalRouter component={Payment} />} />
+        <Route path='/adminpanel/dashboard'>
+          <Route index element={<ConditionalRouter component={AdminPanel} protectedRouter />} />
+          <Route path=':tab' element={<ConditionalRouter component={AdminPanel} protectedRouter />} />
+        </Route>
       </Routes>
       <Footer />
       <CookieConsent buttonText='OKUDUM ONAYLIYORUM' >

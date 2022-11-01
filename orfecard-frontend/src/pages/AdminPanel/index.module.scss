@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: #FFFFFF;
+
+    .sidetabs {
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+    }
+
+    .panel {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        overflow-y: auto;
+    }
+}

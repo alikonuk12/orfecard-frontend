@@ -18,6 +18,7 @@ import About from './About';
 import TeslimatVeIadeKosullari from './TeslimatVeIadeKosullari';
 import MesafeliSatisSozlesmesi from './MesafeliSatisSozlesmesi';
 import Payment from './Payment';
+import AdminPanel from './AdminPanel';
 
 export {
     Homepage,
@@ -39,5 +40,6 @@ export {
     About,
     TeslimatVeIadeKosullari,
     MesafeliSatisSozlesmesi,
-    Payment
+    Payment,
+    AdminPanel
 };

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NotificationManager } from 'react-notifications';
 import { ADD_TO_CART } from '../../store/reducers/cartReducer';
 import { BUTTON_TEXTS, COLORS, INFORMATION_TEXT, TITLES } from './const';
-import getAllProduct from '../../api/product/getAll';
+import getAllProduct from '../../api/product/getallproduct';
 import { generateUniqueID } from '../../util';
 import styles from './index.module.scss';
 
