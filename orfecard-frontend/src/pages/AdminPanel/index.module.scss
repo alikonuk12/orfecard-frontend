@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap');
+
 .container {
     display: flex;
     flex-direction: row;
@@ -7,7 +9,23 @@
     .sidetabs {
         display: flex;
         flex-direction: column;
-        width: 20%;
+        justify-content: center;
+        width: calc(20% - 10px);
+        min-height: 300px;
+        gap: 25px;
+        padding-left: 10px;
+
+        .tab {
+            cursor: pointer;
+            font: {
+                family: 'Kanit', sans-serif;
+                size: 26px;
+                weight: 300;
+            }
+        
+            width: 100%;
+            text-align: start;
+        }
     }
 
     .panel {
